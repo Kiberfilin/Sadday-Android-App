@@ -9,7 +9,7 @@ abstract class BaseActivity : AppCompatActivity(), MvpActivityView {
     private var currentToast: Toast? = null
 
     override fun showToastMsg(toastMsg: String) {
-        if (currentToast != null) {
+        if (currentToast != null) { // null использвать плохо
             currentToast!!.cancel()
         }
         currentToast = Toast.makeText(this, toastMsg, Toast.LENGTH_LONG)

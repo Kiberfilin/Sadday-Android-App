@@ -44,11 +44,11 @@
             android:visibility="gone"/>
 
     <Button
+            android:id="@+id/welcome_login_button"
             android:text="@string/login_button_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onLoginButtonClick"
-            android:id="@+id/welcome_login_button"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
             android:layout_marginBottom="8dp"
