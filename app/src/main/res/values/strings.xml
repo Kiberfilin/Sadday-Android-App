@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">SADDAY app</string>
+    <string name="doble_back_notify">To exit, please click the "Back" button again</string>
+
+    <string name="main_menu_item_title_news">News</string>
+    <string name="main_menu_item_title_place">Place</string>
+    <string name="main_menu_item_title_information">Information</string>
+    <string name="main_menu_item_title_tickets">Tickets</string>
+    <string name="main_menu_item_title_sadday_game">SADDAY Game</string>
+    <string name="main_menu_item_title_foto_video">Foto/Video</string>
+    <string name="main_menu_item_title_account">Account</string>
+
+    <string name="tag_main_menu_item_title_type">tag_main_menu_item_title_type</string>
+
+    <integer name="com_vk_sdk_AppId">6825466</integer>
+
+    <string name="title_activity_news">SADDAY News</string>
+    <string name="main_menu_item_title_dummy">Menu Item</string>
+    <string name="welcome_login_text">Залогиньтесь, чтобы продолжить</string>
+    <string name="login_button_text">Login</string>
+
+
+</resources>
