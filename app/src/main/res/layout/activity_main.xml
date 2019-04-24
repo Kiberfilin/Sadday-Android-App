@@ -5,7 +5,7 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".authorization.mvp.view.WelcomeActivity"
+        tools:context=".features.authorization.WelcomeActivity"
         android:background="@android:color/black">
 
     <ImageView
@@ -43,16 +43,21 @@
             android:textSize="16sp"
             android:visibility="gone"/>
 
-    <Button
+    <TextView
             android:id="@+id/welcome_login_button"
             android:text="@string/login_button_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="onLoginButtonClick"
+            android:layout_marginBottom="8dp"
             android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
-            android:layout_marginEnd="8dp"
+            android:paddingBottom="8dp"
+            android:paddingEnd="8dp"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Button"
+            android:textColor="@color/colorAccent"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

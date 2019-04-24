@@ -1,29 +1,29 @@
 package ru.cyber_eagle_owl.saddayappkt
 
-import android.app.Application
 import com.vk.api.sdk.VK
 import com.vk.api.sdk.VKTokenExpiredHandler
-import ru.cyber_eagle_owl.saddayappkt.authorization.mvp.view.WelcomeActivity
-import ru.cyber_eagle_owl.saddayappkt.diglobal.components.AppComponent
-import ru.cyber_eagle_owl.saddayappkt.diglobal.components.DaggerAppComponent
-import ru.cyber_eagle_owl.saddayappkt.diglobal.modules.AppModule
+import dagger.android.AndroidInjector
+import dagger.android.support.DaggerApplication
+import ru.cyber_eagle_owl.saddayappkt.di.AppComponent
+import ru.cyber_eagle_owl.saddayappkt.di.AppModule
+import ru.cyber_eagle_owl.saddayappkt.di.DaggerAppComponent
+import ru.cyber_eagle_owl.saddayappkt.features.authorization.WelcomeActivity
 
-class App : Application() {
+class App : DaggerApplication() {
+
+    private lateinit var appComponent: AppComponent
 
     override fun onCreate() {
         super.onCreate()
-        prepareApplication()
-        prepareDependencyInjection()
         prepareVkSdk()
     }
-    private fun prepareApplication() {
-        app = this
-    }
 
-    private fun prepareDependencyInjection() {
+    override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
+        //@Deprecated after filling applicationGraph @Deprecated will be removed
         appComponent = DaggerAppComponent.builder()
             .appModule(AppModule(this))
             .build()
+        return appComponent
     }
 
     private fun prepareVkSdk() {
@@ -33,20 +33,6 @@ class App : Application() {
     private val tokenTracker = object: VKTokenExpiredHandler {
         override fun onTokenExpired() {
             WelcomeActivity.startFrom(this@App)
-        }
-    }
-
-    companion object {
-
-        private lateinit var appComponent: AppComponent
-        private lateinit var app: App
-
-        fun getAppComponent(): AppComponent {
-            return appComponent
-        }
-
-        fun getApp(): App {
-            return app
         }
     }
 }

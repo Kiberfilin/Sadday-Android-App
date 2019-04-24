@@ -38,9 +38,12 @@ dependencies {
     implementation 'com.android.support:cardview-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
 
-    //dagger2
-    implementation 'com.google.dagger:dagger:2.13'
-    kapt 'com.google.dagger:dagger-compiler:2.13'
+    //--> Dagger 2
+    def daggerVer = "2.16"
+    implementation "com.google.dagger:dagger-android:$daggerVer"
+    implementation "com.google.dagger:dagger-android-support:$daggerVer"
+    kapt "com.google.dagger:dagger-compiler:$daggerVer"
+    kapt "com.google.dagger:dagger-android-processor:$daggerVer"
 
     //VK sdk
     implementation 'com.vk:androidsdk:2.0.2'
