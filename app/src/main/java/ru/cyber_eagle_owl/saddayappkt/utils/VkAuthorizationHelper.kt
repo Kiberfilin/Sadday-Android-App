@@ -4,8 +4,9 @@ import android.app.Activity
 import com.vk.api.sdk.VK
 import ru.cyber_eagle_owl.saddayappkt.constants.VkConstants
 import ru.cyber_eagle_owl.saddayappkt.mvpcore.MvpView
+import javax.inject.Inject
 
-class VkAuthorizationHelper : AuthorizationHelper {
+class VkAuthorizationHelper @Inject constructor(): AuthorizationHelper {
     override fun isLoggedIn(): Boolean {
         return VK.isLoggedIn()
     }

@@ -3,21 +3,26 @@ package ru.cyber_eagle_owl.saddayappkt.features.authorization
 import android.util.Log
 import ru.cyber_eagle_owl.saddayappkt.mvpcore.BasePresenter
 import ru.cyber_eagle_owl.saddayappkt.utils.AuthorizationHelper
-import ru.cyber_eagle_owl.saddayappkt.utils.VkAuthorizationHelper
 import javax.inject.Inject
 
 class WelcomePresenter @Inject constructor() :
     BasePresenter<WelcomeMvp.View>(),
     WelcomeMvp.Presenter {
+
     private val logTag: String = "WelcomePresenter"
 
     private var isItTheFirstTryToLoginAfterActivityWasCreated: Boolean = true
 
-    private val authorizationHelper: AuthorizationHelper = VkAuthorizationHelper()
+    @Inject lateinit var authorizationHelper: AuthorizationHelper
+
+    @Inject lateinit var model: WelcomeMvp.Model
 
     override fun onViewCreated() {
         Log.d(logTag, "onViewCreated")
 
+        saveStringToPref(logTag, "Сохранённый в SharedPref текст ${System.currentTimeMillis()}")
+
+        view.showToast(getStringFromPref(logTag))
         view.showInjects()
     }
 
@@ -36,9 +41,9 @@ class WelcomePresenter @Inject constructor() :
         }
     }
 
-    override fun onCreateScreenPreparation(sdkVersion: Int, kitkatSdkVersion: Int, viewTune: Unit) {
+    override fun onCreateScreenPreparation(sdkVersion: Int, kitkatSdkVersion: Int) {
         if (sdkVersion >= kitkatSdkVersion) {
-            viewTune
+            view.windowPreparation()
         }
     }
 
@@ -63,14 +68,25 @@ class WelcomePresenter @Inject constructor() :
         }
     }
 
+    override fun onDestroy() {
+        Log.d(logTag, "onDestroy")
+        //TODO Как отцепить отсюда view когда activity вызывает метод onDestroy?
+    }
+
     override fun onLoginButtonClick() {
         Log.d(logTag, "onLoginButtonClick")
 
         authorizationHelper.login(view)
     }
 
-    override fun onDestroy() {
-        Log.d(logTag, "onDestroy")
-        //TODO Как отцепить отсюда view?
+    //region SharedPreferences testing
+    override fun saveStringToPref(key: String, data: String) {
+        model.saveStringDataToSharedPreferences(key, data)
     }
+
+    override fun getStringFromPref(key: String): String {
+        return model.getStringDataToSharedPreferences(key)
+    }
+    //endregion
+
 }

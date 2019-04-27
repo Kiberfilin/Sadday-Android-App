@@ -12,7 +12,6 @@ import android.widget.Toast
 import com.vk.api.sdk.VK
 import com.vk.api.sdk.auth.VKAccessToken
 import com.vk.api.sdk.auth.VKAuthCallback
-import com.vk.api.sdk.auth.VKScope
 import kotlinx.android.synthetic.main.activity_main.*
 import ru.cyber_eagle_owl.saddayappkt.R
 import ru.cyber_eagle_owl.saddayappkt.features.menu.MainMenuActivity
@@ -44,6 +43,8 @@ class WelcomeActivity : BaseActivity(), WelcomeMvp.View {
 
     private val logTag: String = "WelcomeActivity"
 
+    private var currentToast: Toast? = null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         Log.d(logTag, "onCreate")
@@ -54,8 +55,7 @@ class WelcomeActivity : BaseActivity(), WelcomeMvp.View {
 
         welcomePresenter.onCreateScreenPreparation(
             Build.VERSION.SDK_INT,
-            Build.VERSION_CODES.KITKAT,
-            windowPreparation()
+            Build.VERSION_CODES.KITKAT
         )
 
         welcomePresenter.onViewCreated()
@@ -95,8 +95,14 @@ class WelcomeActivity : BaseActivity(), WelcomeMvp.View {
         }
     }
 
-    override fun showToast() {
-        Toast.makeText(this, "Hei!", Toast.LENGTH_SHORT).show()
+    override fun showToast(toastText: String) {
+
+        currentToast?.let {
+            currentToast!!.cancel()
+        }
+
+        currentToast = Toast.makeText(this, toastText, Toast.LENGTH_LONG)
+        currentToast!!.show()
     }
 
     override fun showInjects() {
@@ -147,6 +153,7 @@ class WelcomeActivity : BaseActivity(), WelcomeMvp.View {
 
         fun startFrom(context: Context) {
             Log.d("WelcomeActivity", "startFrom")
+
             val intent = Intent(context, WelcomeActivity::class.java)
             intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
             context.startActivity(intent)
