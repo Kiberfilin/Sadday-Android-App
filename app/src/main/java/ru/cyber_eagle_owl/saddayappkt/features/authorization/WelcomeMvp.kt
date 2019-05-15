@@ -8,17 +8,14 @@ interface WelcomeMvp {
 
         fun showToast(toastText: String)
         fun showInjects()
-        fun windowPreparation()
         fun startMainMenu()
-        fun showViewsForAnotherLoginAttempt()
+        fun onAnotherLoginAttempt()
     }
 
     interface Presenter{
 
         fun onViewCreated()
-        fun onCreateLoginHandling()
-        fun onCreateScreenPreparation(sdkVersion: Int, kitkatSdkVersion: Int)
-        fun onResumeLoginHandling()
+        fun onResumed()
         fun onPauseLoginHandling()
         fun onDestroy()
 

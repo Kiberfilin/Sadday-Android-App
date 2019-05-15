@@ -49,14 +49,15 @@ class WelcomeActivity : BaseActivity(), WelcomeMvp.View {
         super.onCreate(savedInstanceState)
         Log.d(logTag, "onCreate")
 
-        welcomePresenter.onCreateLoginHandling()
-
         setContentView(R.layout.activity_main)
 
-        welcomePresenter.onCreateScreenPreparation(
-            Build.VERSION.SDK_INT,
-            Build.VERSION_CODES.KITKAT
-        )
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            val w: Window = window
+            w.setFlags(
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
+                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
+            )
+        }
 
         welcomePresenter.onViewCreated()
     }
@@ -65,7 +66,7 @@ class WelcomeActivity : BaseActivity(), WelcomeMvp.View {
         super.onResume()
         Log.d(logTag, "onResume")
 
-        welcomePresenter.onResumeLoginHandling()
+        welcomePresenter.onResumed()
     }
 
     override fun onPause() {
@@ -118,16 +119,6 @@ class WelcomeActivity : BaseActivity(), WelcomeMvp.View {
         welcomePresenter.onLoginButtonClick()
     }
 
-    override fun windowPreparation() {
-        Log.d(logTag, "windowPreparation")
-
-        val w: Window = window
-        w.setFlags(
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-            WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-        )
-    }
-
     override fun startMainMenu() {
         Log.d(logTag, "startMainMenu")
 
@@ -135,11 +126,11 @@ class WelcomeActivity : BaseActivity(), WelcomeMvp.View {
         finish()
     }
 
-    override fun showViewsForAnotherLoginAttempt() {
-        Log.d(logTag, "showViewsForAnotherLoginAttempt")
+    override fun onAnotherLoginAttempt() {
+        Log.d(logTag, "onAnotherLoginAttempt")
 
-        welcome_login_button.visibility = View.VISIBLE
-        welcome_text.visibility = View.VISIBLE
+        welcomeLoginButton.visibility = View.VISIBLE
+        welcomeText.visibility = View.VISIBLE
     }
 
     override fun onDestroy() {
@@ -160,3 +151,4 @@ class WelcomeActivity : BaseActivity(), WelcomeMvp.View {
         }
     }
 }
+

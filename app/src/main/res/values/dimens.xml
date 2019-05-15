@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_interval">8dp</dimen>
+    <dimen name="news_post_button_padding_interval">8dp</dimen>
+    <dimen name="news_post_button_margin_interval">8dp</dimen>
+</resources>

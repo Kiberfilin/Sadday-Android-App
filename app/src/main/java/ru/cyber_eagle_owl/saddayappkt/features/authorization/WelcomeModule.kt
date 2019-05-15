@@ -30,6 +30,6 @@ abstract class WelcomeModule {
     @Module
     companion object {
         @JvmStatic @Provides @Named("example") fun provideExampleString(): String = "Я Inject String ☺"
-        @JvmStatic @Provides @Named("example2") fun provideExampleString2(): String = "Я Inject String ☺ ☺"
+        @JvmStatic @Provides @Named("example2") fun provideExampleString2(): String = "Я Inject String ☺"
     }
 }

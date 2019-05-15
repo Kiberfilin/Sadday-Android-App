@@ -20,15 +20,6 @@ class WelcomePresenter @Inject constructor() :
     override fun onViewCreated() {
         Log.d(logTag, "onViewCreated")
 
-        saveStringToPref(logTag, "Сохранённый в SharedPref текст ${System.currentTimeMillis()}")
-
-        view.showToast(getStringFromPref(logTag))
-        view.showInjects()
-    }
-
-    override fun onCreateLoginHandling() {
-        Log.d(logTag, "onCreateLoginHandling")
-
         authorizationHelper.run {
             if (isLoggedIn()) {
                 Log.d(logTag, "User logged in")
@@ -39,23 +30,22 @@ class WelcomePresenter @Inject constructor() :
                 login(view)
             }
         }
+
+        saveStringToPref(logTag, "Сохранённый в SharedPref текст ${System.currentTimeMillis()}")
+
+        view.showToast(getStringFromPref(logTag))
+        view.showInjects()
     }
 
-    override fun onCreateScreenPreparation(sdkVersion: Int, kitkatSdkVersion: Int) {
-        if (sdkVersion >= kitkatSdkVersion) {
-            view.windowPreparation()
-        }
-    }
-
-    override fun onResumeLoginHandling() {
-        Log.d(logTag, "onResumeLoginHandling")
+    override fun onResumed() {
+        Log.d(logTag, "onResumed")
 
         authorizationHelper.run {
             if (isLoggedIn()) {
                 view.startMainMenu()
                 return
             } else if (!isLoggedIn() && !isItTheFirstTryToLoginAfterActivityWasCreated) {
-                view.showViewsForAnotherLoginAttempt()
+                view.onAnotherLoginAttempt()
             }
         }
     }
@@ -70,7 +60,6 @@ class WelcomePresenter @Inject constructor() :
 
     override fun onDestroy() {
         Log.d(logTag, "onDestroy")
-        //TODO Как отцепить отсюда view когда activity вызывает метод onDestroy?
     }
 
     override fun onLoginButtonClick() {
