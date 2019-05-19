@@ -14,6 +14,5 @@ abstract class ActivityBindingModule {
     @ActivityScope
     @ContributesAndroidInjector(modules = [WelcomeModule::class, MainMenuModule::class])
     abstract fun bindWelcomeActivity(): WelcomeActivity
-
     abstract fun bindMainMenuActivity(): MainMenuActivity
 }
