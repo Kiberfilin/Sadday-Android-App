@@ -7,12 +7,12 @@ import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.main_menu_item.view.*
 import ru.cyber_eagle_owl.saddayappkt.R
-import java.util.HashMap
 
 class MainMenuRecyclerAdapter(private val context: Context) :
     RecyclerView.Adapter<MainMenuRecyclerAdapter.MainMenuItemViewHolder>() {
 
-    private lateinit var titlesOfMainMenuItems: HashMap<Int, Int>
+    //    private lateinit var titlesOfMainMenuItems: HashMap<Int, Int>
+    private var titlesOfMainMenuItems = hashMapOf<Int, Int>()
     var onMenuItemClickListener: OnMenuItemClickListener
 
     private val NEWS_ITEM_POSITION = 0

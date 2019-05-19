@@ -55,8 +55,8 @@ class MainMenuActivity : BaseActivity(), MainMenuMvp.View, MainMenuRecyclerAdapt
         }
 
         val adapter = MainMenuRecyclerAdapter(this)
-        adapter.notifyDataSetChanged()
         mainMenuRecyclerview.adapter = adapter
+        adapter.notifyDataSetChanged()
     }
 
     override fun showToast(toastText: String) {

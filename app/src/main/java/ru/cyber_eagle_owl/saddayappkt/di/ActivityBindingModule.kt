@@ -12,7 +12,10 @@ import ru.cyber_eagle_owl.saddayappkt.features.menu.MainMenuModule
 abstract class ActivityBindingModule {
 
     @ActivityScope
-    @ContributesAndroidInjector(modules = [WelcomeModule::class, MainMenuModule::class])
+    @ContributesAndroidInjector(modules = [WelcomeModule::class])
     abstract fun bindWelcomeActivity(): WelcomeActivity
+
+    @ActivityScope
+    @ContributesAndroidInjector(modules = [MainMenuModule::class])
     abstract fun bindMainMenuActivity(): MainMenuActivity
 }
