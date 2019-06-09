@@ -4,6 +4,7 @@ import android.content.Context
 import dagger.Module
 import dagger.Provides
 import dagger.android.support.DaggerApplication
+import ru.cyber_eagle_owl.saddayappkt.di.scopes.ActivityScope
 import ru.cyber_eagle_owl.saddayappkt.di.scopes.ApplicationScope
 import ru.cyber_eagle_owl.saddayappkt.utils.SharedPreferencesHelper
 

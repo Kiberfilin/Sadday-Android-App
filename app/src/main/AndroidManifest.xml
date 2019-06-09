@@ -12,13 +12,29 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
-        <activity android:name=".features.menu.MainMenuActivity">
-        </activity>
-        <activity android:name="ru.cyber_eagle_owl.saddayappkt.features.authorization.WelcomeActivity">
+        <activity android:name="ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.authorization.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name="ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.menu.MainMenuActivity">
+        </activity>
+        <activity android:name="ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.about.AboutActivity">
+        </activity>
+        <activity android:name="ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.account.AccountActivity">
+        </activity>
+        <activity android:name="ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.fotovideo.FotoVideoActivity">
+        </activity>
+        <activity android:name="ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.game.GameActivity">
+        </activity>
+        <activity android:name="ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.information.InformationActivity">
+        </activity>
+        <activity android:name="ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.news.NewsActivity">
+        </activity>
+        <activity android:name="ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.PlaceActivity">
+        </activity>
+        <activity android:name="ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.tickets.TicketsActivity">
         </activity>
     </application>
 

@@ -47,4 +47,7 @@ dependencies {
 
     //VK sdk
     implementation 'com.vk:androidsdk:2.0.2'
+
+    //Logging
+    implementation 'com.jakewharton.timber:timber:4.7.1'
 }

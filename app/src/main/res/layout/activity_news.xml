@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".clean.presentation.features.news.NewsActivity">
+
+    <ImageView
+            android:id="@+id/mainMenuBackground"
+            android:src="@drawable/main_screen_background_2"
+            android:scaleType="centerCrop"
+            android:fitsSystemWindows="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:background="@color/colorShadeForMainMenuElements"
+        />
+
+        <include
+                style="@style/Toolbar"
+                layout="@layout/toolbar"/>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/newsListingRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/news_post_item">
+
+        </android.support.v7.widget.RecyclerView>
+    </LinearLayout>
+
+</FrameLayout>

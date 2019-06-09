@@ -7,7 +7,8 @@ import dagger.android.support.DaggerApplication
 import ru.cyber_eagle_owl.saddayappkt.di.AppComponent
 import ru.cyber_eagle_owl.saddayappkt.di.AppModule
 import ru.cyber_eagle_owl.saddayappkt.di.DaggerAppComponent
-import ru.cyber_eagle_owl.saddayappkt.features.authorization.WelcomeActivity
+import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.authorization.WelcomeActivity
+import timber.log.Timber
 
 class App : DaggerApplication() {
 
@@ -15,7 +16,12 @@ class App : DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()
+        prepareTimber()
         prepareVkSdk()
+    }
+
+    private fun prepareTimber() {
+        Timber.plant(Timber.DebugTree())
     }
 
     override fun applicationInjector(): AndroidInjector<out DaggerApplication> {
