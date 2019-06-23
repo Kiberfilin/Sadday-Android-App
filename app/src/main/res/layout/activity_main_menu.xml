@@ -35,7 +35,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:fitsSystemWindows="true"
-                    app:contentScrim="@color/colorShadeForMainMenuElements"
+                    app:contentScrim="@color/colorShadeForFrontEndElements"
                     app:expandedTitleMarginStart="40dp"
                     app:layout_scrollFlags="scroll|exitUntilCollapsed"
                     app:statusBarScrim="@android:color/transparent">
@@ -48,7 +48,7 @@
                         android:layout_marginTop="32dp"
                         android:layout_marginEnd="32dp"
                         android:layout_marginBottom="16dp"
-                        android:background="@color/colorShadeForMainMenuElements"
+                        android:background="@color/colorShadeForFrontEndElements"
                         android:fitsSystemWindows="true"
                         android:scaleType="centerInside"
                         android:src="@drawable/logo"

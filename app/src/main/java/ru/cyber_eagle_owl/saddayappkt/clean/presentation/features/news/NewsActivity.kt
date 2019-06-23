@@ -4,8 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
 import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.Toast
@@ -13,15 +13,19 @@ import kotlinx.android.synthetic.main.activity_news.*
 import kotlinx.android.synthetic.main.toolbar.*
 import ru.cyber_eagle_owl.saddayappkt.R
 import ru.cyber_eagle_owl.saddayappkt.base.BaseActivity
+import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.presentation.NewsItem
 import timber.log.Timber
 import javax.inject.Inject
 
 class NewsActivity : BaseActivity(), NewsMvp.View {
-
     private var currentToast: Toast? = null
 
     @Inject
     lateinit var presenter: NewsMvp.Presenter
+
+    private lateinit var newsAdapter: NewsListingRecyclerViewAdapter
+
+    private lateinit var onRefreshListener: SwipeRefreshLayout.OnRefreshListener
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,10 +34,15 @@ class NewsActivity : BaseActivity(), NewsMvp.View {
         setContentView(R.layout.activity_news)
 
         prepareScreen()
-        prepareToolbar()
-        prepareRecyclerView()
 
+        val dens: Float = this.resources.displayMetrics.density
+
+        prepareToolbar(resources.configuration.orientation, dens)
+        prepareRecyclerView(resources.configuration.orientation, dens)
+
+        prepareSwipeRefreshLayout()
         presenter.onViewCreated()
+        newsListingSwipeRefresh.isRefreshing = true
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
@@ -48,46 +57,49 @@ class NewsActivity : BaseActivity(), NewsMvp.View {
         }
     }
 
-    private fun prepareRecyclerView() {
+    private fun prepareRecyclerView(orientation: Int, dens: Float) {
         Timber.d("prepareRecyclerView()")
 
-        val dummyItems: ArrayList<NewsItem> = ArrayList()
-        dummyItems.add(NewsItem("Талибы обстреляли НЛО", "Vasia Pupkin", "1l сентября 2001"))
-        dummyItems.add(NewsItem("Талибы обстреляли НЛО", "Buratino", "1l сентября 2001"))
-        dummyItems.add(NewsItem("All your base are belong to us.", "Vasia Pupkin", "1l сентября 2001"))
-        dummyItems.add(NewsItem("Телефон жирафа", "Vasia Pupkin", "1l сентября 2001"))
-        dummyItems.add(NewsItem("Lorem ipsum, or lipsum Lorem ipsum, or lipsum Lorem ipsum, or lipsum Lorem ipsum, or lipsum Lorem ipsum, or lipsum Lorem ipsum, or lipsum Lorem ipsum, or lipsum Lorem ipsum, or lipsum Lorem ipsum, or lipsum Lorem ipsum, or lipsum", "Vasia Pupkin", "1l сентября 2001"))
-        dummyItems.add(NewsItem("Талибы обстреляли НЛО", "Vasia Pupkin", "1l сентября 2001"))
-        dummyItems.add(NewsItem("Талибы обстреляли НЛО", "Vasia Pupkin", "1l сентября 2001"))
-        dummyItems.add(NewsItem("Талибы обстреляли НЛО", "Vasia Pupkin", "1l сентября 2001"))
+        newsAdapter = NewsListingRecyclerViewAdapter()
 
-        val tmpAdapter = NewsListingRecyclerViewAdapter()
-        tmpAdapter.newsItems = dummyItems
+        //newsListingRecyclerView.apply {
+        newsListingSwipeRefresh.apply {
 
-        newsListingRecyclerView.apply {
-
-            val dens: Float = context.resources.displayMetrics.density
-
-            if (resources.configuration.orientation == Configuration.ORIENTATION_PORTRAIT) {
+            if (orientation == Configuration.ORIENTATION_PORTRAIT) {
                 (layoutParams as ViewGroup.MarginLayoutParams).bottomMargin = (48 * dens).toInt()
+                (layoutParams as ViewGroup.MarginLayoutParams).marginStart = (8 * dens).toInt()
+                (layoutParams as ViewGroup.MarginLayoutParams).marginEnd = (8 * dens).toInt()
             } else {
                 (layoutParams as ViewGroup.MarginLayoutParams).marginStart = (48 * dens).toInt()
                 (layoutParams as ViewGroup.MarginLayoutParams).marginEnd = (48 * dens).toInt()
             }
 
-            layoutManager = LinearLayoutManager(this@NewsActivity)
-            this.adapter = tmpAdapter
-            adapter.notifyDataSetChanged()
+            newsListingRecyclerView.layoutManager = LinearLayoutManager(this@NewsActivity)
+            newsListingRecyclerView.adapter = newsAdapter
+            newsListingRecyclerView.adapter.notifyDataSetChanged()
         }
     }
 
-    private fun prepareToolbar() {
+    private fun prepareToolbar(orientation: Int, dens: Float) {
         Timber.d("prepareToolbar()")
 
         setSupportActionBar(toolbar)
-        toolbar.setBackgroundResource(R.color.colorShadeForMainMenuElements)
+        toolbar.setBackgroundResource(R.color.colorShadeForFrontEndElements)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
         toolbar.setTitle(R.string.main_menu_item_title_news)
+
+        if (orientation == Configuration.ORIENTATION_LANDSCAPE) {
+            (toolbar.layoutParams as ViewGroup.MarginLayoutParams).marginStart = (48 * dens).toInt()
+            (toolbar.layoutParams as ViewGroup.MarginLayoutParams).marginEnd = (48 * dens).toInt()
+        }
+    }
+
+    override fun onNewsHasGotten(news: List<NewsItem>) {
+        Timber.d("onNewsHasGotten(news: ArrayList<NewsItem>)")
+
+        newsAdapter.newsItems = news
+        newsAdapter.notifyDataSetChanged()
+        newsListingSwipeRefresh.isRefreshing = false
     }
 
     override fun showToast(toastText: String) {
@@ -105,6 +117,16 @@ class NewsActivity : BaseActivity(), NewsMvp.View {
         super.onDestroy()
         Timber.d("onDestroy")
 
+    }
+
+    private fun prepareSwipeRefreshLayout() {
+        Timber.d("showToast")
+
+        onRefreshListener = SwipeRefreshLayout.OnRefreshListener {
+            presenter.onNewsRefreshingStarted()
+        }
+
+        newsListingSwipeRefresh.setOnRefreshListener(onRefreshListener)
     }
 
     companion object {

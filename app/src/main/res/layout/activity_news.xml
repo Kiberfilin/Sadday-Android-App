@@ -8,7 +8,7 @@
         tools:context=".clean.presentation.features.news.NewsActivity">
 
     <ImageView
-            android:id="@+id/mainMenuBackground"
+            android:id="@+id/newsListingBackground"
             android:src="@drawable/main_screen_background_2"
             android:scaleType="centerCrop"
             android:fitsSystemWindows="true"
@@ -22,20 +22,25 @@
         <View
                 android:layout_width="match_parent"
                 android:layout_height="24dp"
-                android:background="@color/colorShadeForMainMenuElements"
-        />
+                android:background="@color/colorShadeForFrontEndElements"/>
 
         <include
                 style="@style/Toolbar"
                 layout="@layout/toolbar"/>
 
-        <android.support.v7.widget.RecyclerView
-                android:id="@+id/newsListingRecyclerView"
+        <android.support.v4.widget.SwipeRefreshLayout
+                android:id="@+id/newsListingSwipeRefresh"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:listitem="@layout/news_post_item">
+                android:layout_height="wrap_content">
 
-        </android.support.v7.widget.RecyclerView>
+            <android.support.v7.widget.RecyclerView
+                    android:id="@+id/newsListingRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    tools:listitem="@layout/news_post_item">
+
+            </android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
     </LinearLayout>
 
 </FrameLayout>

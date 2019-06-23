@@ -17,6 +17,7 @@ class WelcomePresenter @Inject constructor() :
 
     private val authRepo: VkAuthorizationRepository =
         VkAuthorizationRepository()
+
     private val isLoggedIn: CheckIsLoggedInInputPort = CheckIsLoggedInInteractor(this, authRepo)
     private val login: LogInInputPort = LogInInteractor(authRepo)
 
