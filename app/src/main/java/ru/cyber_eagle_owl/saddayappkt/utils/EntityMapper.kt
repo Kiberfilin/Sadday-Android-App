@@ -1,21 +1,25 @@
 package ru.cyber_eagle_owl.saddayappkt.utils
 
+
 import android.annotation.SuppressLint
 import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.data.Group
 import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.data.Item
 import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.data.VkUser
 import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.presentation.NewsItem
 import timber.log.Timber
+import java.text.SimpleDateFormat
 
 class EntityMapper {
 
     companion object {
+
 
         @SuppressLint("SimpleDateFormat")
         fun mapToNewsItems(items: List<Item?>?, authors: List<VkUser?>?, group: Group?): List<NewsItem> {
             Timber.d("mapToNewsItems(items: List<Item?>?): List<NewsItem>")
 
             val newsItems: ArrayList<NewsItem> = ArrayList()
+
 
             items?.let {
                 for (i in 0 until it.size) {
@@ -33,7 +37,7 @@ class EntityMapper {
                             else -> ""
                         }
 
-                        val sdf = java.text.SimpleDateFormat("kk:mm dd.MM.yyyy")
+                        val sdf = SimpleDateFormat("kk:mm dd.MM.yyyy")
                         val tmpNewsDate = if (it[i]!!.date != null) {
                             sdf.format(java.util.Date(it[i]!!.date!! * 1000))
                         } else ""
