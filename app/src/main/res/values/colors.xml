@@ -10,6 +10,14 @@
 
     <color name="colorTransparent">#00ffffff</color>
 
+    <color name="colorCardGray">#333333</color>
+    <color name="colorCardDescriptionBackground">#eeeeee</color>
+    <color name="colorCardNameText">#e69138</color>
+    <color name="colorRockPowerValue">#C62828</color>
+    <color name="colormaxAlcoholDigestibilityValue">#1565C0</color>
+    <color name="coloracousticBrainProtectionValue">#2E7D32</color>
+    <color name="colorCardPrimaryText">#212121</color>
+
     <!--Test colors-->
     <color name="colorRed">#c8ff0000</color>
     <color name="colorOrange">#c8ff5e00</color>

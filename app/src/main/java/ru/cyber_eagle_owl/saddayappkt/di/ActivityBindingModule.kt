@@ -9,6 +9,7 @@ import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.authorization.
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.authorization.WelcomeModule
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.fotovideo.FotoVideoActivity
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.game.GameActivity
+import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.game.GameModule
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.information.InformationActivity
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.menu.MainMenuActivity
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.menu.MainMenuModule
@@ -41,7 +42,7 @@ abstract class ActivityBindingModule {
     abstract fun bindFotoVideoActivity(): FotoVideoActivity
 
     @ActivityScope
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [GameModule::class])
     abstract fun bindGameActivity(): GameActivity
 
     @ActivityScope

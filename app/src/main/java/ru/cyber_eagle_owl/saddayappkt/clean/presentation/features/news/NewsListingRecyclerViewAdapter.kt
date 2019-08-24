@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.ViewTreeObserver
+import com.jakewharton.rxbinding2.widget.RxTextView
 import kotlinx.android.synthetic.main.news_post_item.view.*
 import ru.cyber_eagle_owl.saddayappkt.R
 import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.presentation.NewsItem

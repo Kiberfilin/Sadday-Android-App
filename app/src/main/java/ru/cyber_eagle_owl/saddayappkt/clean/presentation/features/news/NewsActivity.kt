@@ -31,8 +31,8 @@ class NewsActivity : BaseActivity(), NewsMvp.View {
         super.onCreate(savedInstanceState)
         Timber.d("onCreate")
 
-        setContentView(R.layout.activity_news)
 
+        setContentView(R.layout.activity_news)
         prepareScreen()
 
         val dens: Float = this.resources.displayMetrics.density
@@ -63,7 +63,7 @@ class NewsActivity : BaseActivity(), NewsMvp.View {
         newsAdapter = NewsListingRecyclerViewAdapter()
 
         //newsListingRecyclerView.apply {
-        newsListingSwipeRefresh.apply {
+        newsListingSwipeRefresh?.apply {
 
             if (orientation == Configuration.ORIENTATION_PORTRAIT) {
                 (layoutParams as ViewGroup.MarginLayoutParams).bottomMargin = (48 * dens).toInt()
@@ -136,8 +136,7 @@ class NewsActivity : BaseActivity(), NewsMvp.View {
                     //to set some flags here, like it:
                     //flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TOP
                     flags = Intent.FLAG_ACTIVITY_NEW_TASK
-                }
-                .also { context.startActivity(it) }
+                }.also { context.startActivity(it) }
         }
     }
 }

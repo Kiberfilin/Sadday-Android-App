@@ -30,3 +30,4 @@ class NewsPresenter @Inject constructor() : BasePresenter<NewsMvp.View>(), NewsM
         view.onNewsHasGotten(newsToShow)
     }
 }
+

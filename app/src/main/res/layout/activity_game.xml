@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true"
+        tools:context=".clean.presentation.features.game.GameActivity">
+
+    <ImageView
+            android:id="@+id/newsListingBackground"
+            android:src="@drawable/main_screen_background_3"
+            android:scaleType="centerCrop"
+            android:fitsSystemWindows="true"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <View
+                android:layout_width="match_parent"
+                android:layout_height="24dp"
+                android:background="@color/colorShadeForFrontEndElements"/>
+
+        <include
+                style="@style/Toolbar"
+                layout="@layout/toolbar"/>
+
+        <android.support.design.widget.TabLayout
+                android:id="@+id/gameActivityTabs"
+                android:background="@color/colorShadeForFrontEndElements"
+                android:padding="2dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" app:tabGravity="center"
+                app:tabTextColor="@color/colorMainText" app:tabSelectedTextColor="@color/colorMainText"/>
+
+        <android.support.v4.view.ViewPager
+                android:id="@+id/gameActivityPager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
+    </LinearLayout>
+
+</merge>
