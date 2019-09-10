@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="16dp"
+        android:background="@color/colorTransparent"
+        tools:context=".clean.presentation.features.game.fragments.GameHomeFragment">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@color/colorShadeForFrontEndElements">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/gameHomeTitle"
+                android:fontFamily="@font/russo_one"
+                android:textColor="@color/colorMainText"
+                android:layout_gravity="center_horizontal"
+                android:textSize="24sp"
+                android:layout_marginTop="16dp"/>
+
+        <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="16dp"
+                android:text="@string/gameHomeDescription"
+                android:textColor="@color/colorMainText"/>
+    </LinearLayout>
+
+</ScrollView>

@@ -10,6 +10,7 @@ import ru.cyber_eagle_owl.saddayappkt.di.scopes.ApplicationScope
 @Component(modules = [
     AppModule::class,
     ActivityBindingModule::class,
+    FragmentBindingModule::class,
     AndroidSupportInjectionModule::class])
 
 interface AppComponent : AndroidInjector<App>

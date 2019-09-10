@@ -11,6 +11,9 @@
     <string name="main_menu_item_title_account">Account</string>
     <string name="main_menu_item_title_about">About</string>
 
+    <string name="button_more_label">MORE</string>
+    <string name="button_less_label">LESS</string>
+
     <string name="tag_main_menu_item_title_type">tag_main_menu_item_title_type</string>
 
     <integer name="com_vk_sdk_AppId">6825466</integer>
@@ -19,6 +22,121 @@
     <string name="main_menu_item_title_dummy">Menu Item</string>
     <string name="welcome_login_text">Залогиньтесь, чтобы продолжить</string>
     <string name="login_button_text">Login</string>
+
+    <string name="gameHomeTitle">SADDAY Game</string>
+
+    <string name="long_dummy_text">What is Lorem Ipsum? Lorem Ipsum is simply dummy text of the printing and typesetting
+        industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer
+        took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+        but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s
+        with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing
+        software like Aldus PageMaker including versions of Lorem Ipsum. Why do we use it? It is a long established fact
+        that a reader will be distracted by the readable content of a page when looking at its layout. The point of
+        using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using \'Content
+        here, content here\', making it look like readable English. Many desktop publishing packages and web page
+        editors now use Lorem Ipsum as their default model text, and a search for \'lorem ipsum\' will uncover many web
+        sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on
+        purpose (injected humour and the like). Where does it come from? Contrary to popular belief, Lorem Ipsum is not
+        simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years
+        old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more
+        obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in
+        classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of
+        "de Finibus Bonorum et Malorum" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a
+        treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, "Lorem
+        ipsum dolor sit amet..", comes from a line in section 1.10.32. The standard chunk of Lorem Ipsum used since the
+        1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from "de Finibus Bonorum et
+        Malorum" by Cicero are also reproduced in their exact original form, accompanied by English versions from the
+        1914 translation by H. Rackham. Where can I get some? There are many variations of passages of Lorem Ipsum
+        available, but the majority have suffered alteration in some form, by injected humour, or randomised words which
+        don\'t look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure
+        there isn\'t anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet
+        tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a
+        dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem
+        Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected
+        humour, or non-characteristic words etc.
+    </string>
+
+    <string name="cardStatsTitle">Card stats</string>
+    <string name="rockPowerText">Rock Power: <b>%1$s</b></string>
+    <string name="maxAlcoholDigestibilityText">Maximum alcohol digestibility: <b>%1$s</b></string>
+    <string name="acousticBrainProtectionText">Acoustic brain protection: <b>%1$s</b></string>
+
+    <string name="totalCardsInDeck">Всего в колоде таких карт: %1$d шт.</string>
+
+    <string name="gameHomeDescription">Игра в разработке. На следующей вкладке можно посмотреть примерный внешний вид
+        игровых карт, а здесь, возможно, скоро будут выложены правила игры или описания карт. Но это не точно.</string>
+
+    <string-array name="kamikazi">
+        <item>Этиловый Камикадзе</item>
+        <item>Ушатывает почти любого, ценой своего здоровья</item>
+        <item>Special ability: these card and opponent \'s target card alcohol digestibility -2</item>
+    </string-array>
+
+    <string-array name="blogger">
+        <item>Блоггер</item>
+        <item>С блоггерами бухают все. Ну или почти все.</item>
+        <item>Special ability: alcohol digestibility -1 to all</item>
+    </string-array>
+
+    <string-array name="friends">
+        <item>Компания друзей</item>
+        <item>Тусят в зале с фанатами и ждут тех, кто опоздал.</item>
+        <item>Special ability: get 1 additional card from deck next turn</item>
+    </string-array>
+
+    <string-array name="programmer">
+        <item>Программист</item>
+        <item>Не пьёт. Добавляет всем alcohol digestibility +1.</item>
+        <item>Special ability: alcohol digestibility +1 to all (will NOT exceed the max value for each card)</item>
+    </string-array>
+
+    <string-array name="konkurenti">
+        <item>Конкуренты</item>
+        <item>Тактическое спаивание выбранного оппонента.</item>
+        <item>Special ability: alcohol digestibility -1 to opponent\'s target card and to these card too</item>
+    </string-array>
+
+    <string-array name="organizator">
+        <item>Организатор</item>
+        <item>Устойчив к запредельно громким звукам</item>
+        <item>Special ability: Rock Power +1 to each allied team\'s card</item>
+    </string-array>
+
+    <string-array name="telochki">
+        <item>Тёлочки</item>
+        <item>Могут переманить к себе кого-нибудь из мошпита</item>
+        <item>Special ability: attract one opponent\'s card to their side</item>
+    </string-array>
+
+    <string-array name="maskishow">
+        <item>Маски-шоу</item>
+        <item>Нагрянула "внезапная" проверка от ФСКН.</item>
+        <item>Special ability: current game round wll be move to the center of the game field</item>
+    </string-array>
+
+    <string-array name="slemeri">
+        <item>Слэмеры</item>
+        <item>Лучше, если их будет много. Устойчивы к звуку</item>
+        <item>Special ability: none</item>
+    </string-array>
+
+    <string-array name="fans">
+        <item>Фанаты</item>
+        <item>Обычно тусят у сцены, но иногда слэмят или мошат</item>
+        <item>Special ability: none</item>
+    </string-array>
+
+    <string-array name="tancori">
+        <item>Танцоры</item>
+        <item>Пока трезвые, они крутят вертухи и угарают.</item>
+        <item>Special ability: none</item>
+    </string-array>
+
+    <string-array name="stagedivers">
+        <item>Стейдждайверы</item>
+        <item>Отжигают тока в путь… пока охрана не выведет</item>
+        <item>Special ability: none</item>
+    </string-array>
 
 
 </resources>

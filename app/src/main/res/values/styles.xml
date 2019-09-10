@@ -16,11 +16,9 @@
     <style name="Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
         <item name="android:textColorPrimary">@color/colorMainText</item>
         <item name="android:textColorSecondary">@color/colorMainText</item>
-        <item name="colorPrimary">@color/colorShadeForMainMenuElements</item>
+        <item name="colorPrimary">@color/colorShadeForFrontEndElements</item>
         <!--<item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
     </style>
-
-
 
     <style name="MainActivityTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 

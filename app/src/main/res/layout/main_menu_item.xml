@@ -10,19 +10,20 @@
     android:layout_marginBottom="16dp">
 
     <TextView
-        android:id="@+id/mainMenuItemTextview"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/colorShadeForMainMenuElements"
-        android:fontFamily="@font/russo_one"
-        android:gravity="center"
-        android:padding="32dp"
-        android:text="@string/main_menu_item_title_dummy"
-        android:textColor="@color/colorMainText"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+            android:id="@+id/mainMenuItemTextview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorShadeForFrontEndElements"
+            android:fontFamily="@font/russo_one"
+            android:gravity="center"
+            android:padding="32dp"
+            android:text="@string/main_menu_item_title_dummy"
+            android:textColor="@color/colorMainText"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintVertical_bias="1.0"/>
 
 </android.support.constraint.ConstraintLayout>

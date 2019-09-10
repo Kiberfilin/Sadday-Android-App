@@ -1,13 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorPrimary">#fff</color>
+    <color name="colorPrimaryDark">#808080</color>
     <color name="colorAccent">#D81B60</color>
 
-    <color name="colorShadeForMainMenuElements">#60000000</color>
+    <color name="colorShadeForFrontEndElements">#90000000</color>
+    <!--<color name="colorShadeForFrontEndElements">#60000000</color>-->
     <color name="colorMainText">#C8FFFFFF</color>
 
     <color name="colorTransparent">#00ffffff</color>
+
+    <color name="colorCardGray">#333333</color>
+    <color name="colorCardDescriptionBackground">#eeeeee</color>
+    <color name="colorCardNameText">#e69138</color>
+    <color name="colorRockPowerValue">#C62828</color>
+    <color name="colormaxAlcoholDigestibilityValue">#1565C0</color>
+    <color name="coloracousticBrainProtectionValue">#2E7D32</color>
+    <color name="colorCardPrimaryText">#212121</color>
 
     <!--Test colors-->
     <color name="colorRed">#c8ff0000</color>
