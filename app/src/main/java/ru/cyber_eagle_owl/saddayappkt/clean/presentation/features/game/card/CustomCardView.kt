@@ -618,18 +618,23 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
     }
 
     private fun drawTextElement(textX: Float, textY: Float, layout: StaticLayout, canvas: Canvas?) {
-        canvas?.save()
-        canvas?.translate(textX, textY)
-        layout.draw(canvas)
-        canvas?.restore()
+        canvas?.let {
+            it.save()
+            it.translate(textX, textY)
+            layout.draw(canvas)
+            it.restore()
+        }
     }
 
     private fun drawCardWithoutText(canvas: Canvas?) {
-        canvas?.drawRoundRect(tmpRectF, cardCorners, cardCorners, cardPaint)
-        canvas?.drawBitmap(cardImageBitmap, null, pictureArea, null)
-        canvas?.drawRect(descriptionArea, descriptionBacgroundPaint)
-        canvas?.drawBitmap(descriptionBackgroundBitmap, null, descriptionArea, null)
-        canvas?.drawRect(pictureArea, contentPaint)
+        canvas?.let {
+            it.drawRoundRect(tmpRectF, cardCorners, cardCorners, cardPaint)
+            it.drawBitmap(cardImageBitmap, null, pictureArea, null)
+            it.drawRect(descriptionArea, descriptionBacgroundPaint)
+            it.drawBitmap(descriptionBackgroundBitmap, null, descriptionArea, null)
+            it.drawRect(pictureArea, contentPaint)
+        }
+
 
         /*
     canvas?.drawRect(cardNameTextArea, contentPaint)
