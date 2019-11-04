@@ -8,7 +8,7 @@
         tools:context=".clean.presentation.features.game.GameActivity">
 
     <ImageView
-            android:id="@+id/newsListingBackground"
+            android:id="@+id/placeActivityBackground"
             android:src="@drawable/main_screen_background_3"
             android:scaleType="centerCrop"
             android:fitsSystemWindows="true"

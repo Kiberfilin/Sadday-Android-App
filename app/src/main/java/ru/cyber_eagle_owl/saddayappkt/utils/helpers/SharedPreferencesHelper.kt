@@ -1,4 +1,4 @@
-package ru.cyber_eagle_owl.saddayappkt.utils
+package ru.cyber_eagle_owl.saddayappkt.utils.helpers
 
 import android.content.SharedPreferences
 

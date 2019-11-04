@@ -1,12 +1,25 @@
 package ru.cyber_eagle_owl.saddayappkt.base
 
 import android.os.Build
+import android.os.Bundle
 import android.view.Window
 import android.view.WindowManager
 import dagger.android.support.DaggerAppCompatActivity
+import ru.cyber_eagle_owl.saddayappkt.utils.wrappers.RouterToolbox
 import timber.log.Timber
 
 abstract class BaseActivity : DaggerAppCompatActivity() {
+
+    lateinit var routerToolbox: RouterToolbox
+
+    protected fun initRouterToolbox() {
+        if (!::routerToolbox.isInitialized) routerToolbox = RouterToolbox(this)
+    }
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        initRouterToolbox()
+    }
 
     fun prepareScreen(){
         Timber.d("prepareScreen()")

@@ -13,7 +13,7 @@ import ru.cyber_eagle_owl.saddayappkt.clean.data.web.VkUsersRequest
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.repository.inputports.NewsRepositoryInputPort
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.repository.outputports.NewsRepositoryOutputPort
 import ru.cyber_eagle_owl.saddayappkt.constants.VkConstants
-import ru.cyber_eagle_owl.saddayappkt.utils.EntityMapper
+import ru.cyber_eagle_owl.saddayappkt.utils.mappers.EntityMapper
 import timber.log.Timber
 import kotlin.text.StringBuilder
 

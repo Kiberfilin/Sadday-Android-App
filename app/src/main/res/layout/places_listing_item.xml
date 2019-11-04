@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/colorShadeForFrontEndElements"
+        android:orientation="vertical"
+        android:padding="16dp"
+        tools:visibility="visible">
+
+    <TextView
+            android:id="@+id/festTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/russo_one"
+            android:gravity="center"
+            android:text="@string/places_listing_item_title_dummy"
+            android:textColor="@color/colorMainText"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+            android:id="@+id/festInfo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/places_listing_item_info_dummy"
+            android:textColor="@color/colorMainText"
+            app:layout_constraintEnd_toEndOf="@+id/festTitle"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/festTitle"
+            app:layout_constraintTop_toBottomOf="@+id/festTitle" />
+
+    <TextView
+            android:id="@+id/festLocation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/places_listing_item_location_dummy"
+            android:textColor="@color/colorMainText"
+            app:layout_constraintEnd_toEndOf="@+id/festInfo"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/festInfo"
+            app:layout_constraintTop_toBottomOf="@+id/festInfo" />
+
+</android.support.constraint.ConstraintLayout>

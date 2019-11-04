@@ -4,7 +4,7 @@ import ru.cyber_eagle_owl.saddayappkt.R
 import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.presentation.CardItem
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.repository.inputports.CardsRepositoryInputPort
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.repository.outputports.CardsRepositoryOutputPort
-import ru.cyber_eagle_owl.saddayappkt.utils.ResourcesHelper
+import ru.cyber_eagle_owl.saddayappkt.utils.helpers.ResourcesHelper
 import timber.log.Timber
 
 class CardsRepository (val resources: ResourcesHelper): CardsRepositoryInputPort {

@@ -7,6 +7,7 @@ class VkConstants {
     companion object {
 
         const val BOOKING_AGENCY_GROUP_ID: Long = -154501039
+        const val TEST_GROUP_ID: Long = 39575772
 
         val DEFAULT_LOGIN_SCOPE: ArrayList<VKScope> =
             arrayListOf(VKScope.WALL, VKScope.PHOTOS, VKScope.GROUPS, VKScope.VIDEO)
