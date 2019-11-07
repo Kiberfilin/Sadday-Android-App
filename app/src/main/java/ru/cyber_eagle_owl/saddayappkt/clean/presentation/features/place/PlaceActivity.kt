@@ -36,16 +36,8 @@ class PlaceActivity : BaseActivity() {
 
         mainView.apply {
             setRootView(rootView)
-            onFinishInflate()
+            onFinishInflate(getRouterToolbox())
         }
-    }
-
-    override fun onResume() {
-        super.onResume()
-        initRouterToolbox()
-        Timber.d("onResume()")
-        Timber.d("routerToolbox = $routerToolbox")
-        mainView.onResume(routerToolbox)
     }
 
     private fun prepareToolbar(orientation: Int, dens: Float) {

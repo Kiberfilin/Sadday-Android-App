@@ -34,7 +34,7 @@ class PlacesListingFragment : BaseFragment() {
     override fun onStart() {
         super.onStart()
 
-        view.onStart((activity as BaseActivity).routerToolbox)
+        view.onStart((activity as BaseActivity).getRouterToolbox())
     }
 
     companion object {

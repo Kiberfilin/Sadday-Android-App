@@ -8,7 +8,5 @@ import javax.inject.Inject
 class PlacesListingRouterImpl @Inject constructor() : BaseRouter(),
     PlacesListingViperContract.PlacesListingRouter {
 
-    override fun setToolsForRouting(toolbox: RouterToolbox) {
-        this.toolbox = toolbox
-    }
+
 }

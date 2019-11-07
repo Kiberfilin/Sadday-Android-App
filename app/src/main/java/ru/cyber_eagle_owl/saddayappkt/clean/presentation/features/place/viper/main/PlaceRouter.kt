@@ -17,8 +17,4 @@ class PlaceRouter @Inject constructor(): BaseRouter(), PlaceMainViperContract.Ma
             "PlacesListingFragment"
         ).commit()
     }
-
-    override fun setToolsForRouting(toolbox: RouterToolbox) {
-        this.toolbox = toolbox
-    }
 }

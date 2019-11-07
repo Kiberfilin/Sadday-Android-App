@@ -9,8 +9,7 @@ interface PlaceMainViperContract {
 
     interface MainView : ViperView<MainPresenter> {
 
-        fun onFinishInflate()
-        fun onResume(toolbox: RouterToolbox)
+        fun onFinishInflate(toolbox: RouterToolbox)
     }
 
     interface MainPresenter : ViperPresenter {
@@ -18,13 +17,12 @@ interface PlaceMainViperContract {
         var view: MainView
 
         fun onViewCreated(view: MainView)
-        fun onResume(toolbox: RouterToolbox)
+        fun onFinishInflate(toolbox: RouterToolbox)
     }
 
     interface MainRouter : ViperRouter {
 
         fun addPlacesListingFragment()
-        fun setToolsForRouting(toolbox: RouterToolbox)
     }
 }
 
@@ -45,6 +43,5 @@ interface PlacesListingViperContract {
 
     interface PlacesListingRouter : ViperRouter {
 
-        fun setToolsForRouting(toolbox: RouterToolbox)
     }
 }

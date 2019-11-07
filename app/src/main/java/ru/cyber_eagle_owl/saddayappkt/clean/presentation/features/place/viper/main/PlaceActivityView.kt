@@ -9,14 +9,13 @@ import javax.inject.Inject
 class PlaceActivityView @Inject constructor() : BaseView<PlaceMainViperContract.MainPresenter>(),
     PlaceMainViperContract.MainView {
 
-    override fun onFinishInflate() {
+    override fun onFinishInflate(toolbox: RouterToolbox) {
         Timber.d("onResume()")
         initViews()
-        presenter.onViewCreated(this)
-    }
-
-    override fun onResume(toolbox: RouterToolbox) {
-        presenter.onResume(toolbox)
+        presenter.apply {
+            onViewCreated(this@PlaceActivityView)
+            onFinishInflate(toolbox)
+        }
     }
 
     private fun initViews() {

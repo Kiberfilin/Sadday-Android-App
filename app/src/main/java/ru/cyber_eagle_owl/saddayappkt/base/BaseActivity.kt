@@ -10,15 +10,11 @@ import timber.log.Timber
 
 abstract class BaseActivity : DaggerAppCompatActivity() {
 
-    lateinit var routerToolbox: RouterToolbox
+    private lateinit var routerToolbox: RouterToolbox
 
-    protected fun initRouterToolbox() {
+    fun getRouterToolbox(): RouterToolbox {
         if (!::routerToolbox.isInitialized) routerToolbox = RouterToolbox(this)
-    }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        initRouterToolbox()
+        return routerToolbox
     }
 
     fun prepareScreen(){
