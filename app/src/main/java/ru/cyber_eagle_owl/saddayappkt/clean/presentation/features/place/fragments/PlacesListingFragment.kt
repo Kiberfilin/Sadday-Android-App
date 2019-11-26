@@ -33,8 +33,15 @@ class PlacesListingFragment : BaseFragment() {
 
     override fun onStart() {
         super.onStart()
+        Timber.d("onStart()")
 
         view.onStart((activity as BaseActivity).getRouterToolbox())
+    }
+
+    override fun onStop() {
+        Timber.d("onStop()")
+        view.onStop()
+        super.onStop()
     }
 
     companion object {

@@ -4,7 +4,6 @@ import ru.cyber_eagle_owl.saddayappkt.R
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.fragments.PlacesListingFragment
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.viper.PlaceMainViperContract
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.vipercore.BaseRouter
-import ru.cyber_eagle_owl.saddayappkt.utils.wrappers.RouterToolbox
 import javax.inject.Inject
 
 

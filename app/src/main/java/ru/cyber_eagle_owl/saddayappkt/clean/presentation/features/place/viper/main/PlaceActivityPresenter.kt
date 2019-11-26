@@ -14,9 +14,9 @@ class PlaceActivityPresenter @Inject constructor() : BasePresenter(),
     @Inject
     lateinit var router: PlaceMainViperContract.MainRouter
 
-    override fun onFinishInflate(toolbox: RouterToolbox) {
+    override fun onFinishInflate(toolbox: RouterToolbox, isOrientationChanged: Boolean) {
         router.setToolsForRouting(toolbox)
-        router.addPlacesListingFragment() //todo сделать грамотную обработку фрагментов
+        if (!isOrientationChanged) router.addPlacesListingFragment()
     }
 
     override fun onViewCreated(view: PlaceMainViperContract.MainView) {

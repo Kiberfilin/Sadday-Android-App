@@ -17,6 +17,8 @@ import javax.inject.Inject
 
 class PlaceActivity : BaseActivity() {
 
+    var isOrientationChanged: Boolean = false
+
     private var currentToast: Toast? = null
 
     @Inject
@@ -24,8 +26,9 @@ class PlaceActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         Timber.d("onCreate")
+
+        isOrientationChanged = savedInstanceState != null
 
         val rootView = LayoutInflater.from(this).inflate(R.layout.activity_place, null)
         setContentView(rootView)
@@ -36,7 +39,7 @@ class PlaceActivity : BaseActivity() {
 
         mainView.apply {
             setRootView(rootView)
-            onFinishInflate(getRouterToolbox())
+            onFinishInflate(getRouterToolbox(), isOrientationChanged)
         }
     }
 

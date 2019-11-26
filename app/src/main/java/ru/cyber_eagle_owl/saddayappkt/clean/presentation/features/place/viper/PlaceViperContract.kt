@@ -1,5 +1,7 @@
 package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.viper
 
+import io.reactivex.Single
+import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.presentation.PlaceItem
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.vipercore.ViperPresenter
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.vipercore.ViperRouter
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.vipercore.ViperView
@@ -9,7 +11,7 @@ interface PlaceMainViperContract {
 
     interface MainView : ViperView<MainPresenter> {
 
-        fun onFinishInflate(toolbox: RouterToolbox)
+        fun onFinishInflate(toolbox: RouterToolbox, isOrientationChanged: Boolean)
     }
 
     interface MainPresenter : ViperPresenter {
@@ -17,7 +19,7 @@ interface PlaceMainViperContract {
         var view: MainView
 
         fun onViewCreated(view: MainView)
-        fun onFinishInflate(toolbox: RouterToolbox)
+        fun onFinishInflate(toolbox: RouterToolbox, isOrientationChanged: Boolean)
     }
 
     interface MainRouter : ViperRouter {
@@ -31,6 +33,7 @@ interface PlacesListingViperContract {
     interface PlacesListingView : ViperView<PlacesListingPresenter> {
 
         fun onStart(toolbox: RouterToolbox)
+        fun onStop()
     }
 
     interface PlacesListingPresenter : ViperPresenter {
@@ -39,6 +42,7 @@ interface PlacesListingViperContract {
 
         fun onViewCreated(view: PlacesListingView)
         fun onStart(toolbox: RouterToolbox)
+        fun onRefreshing(): Single<ArrayList<PlaceItem>>
     }
 
     interface PlacesListingRouter : ViperRouter {
