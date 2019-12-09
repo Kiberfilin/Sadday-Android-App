@@ -98,6 +98,11 @@ class VkConstants {
         const val VKAPI_CONST_METRO_STATION_ID = "metro_station_id"
         const val VKAPI_CONST_WORK_INFO_STATUS = "work_info_status"
         const val VKAPI_CONST_TIMETABLE = "timetable"
+        //константы для объекта MetroStation
+        const val VKAPI_CONST_STATION_IDS = "station_ids"
+        //константы для объекта City
+        const val VKAPI_CONST_CITY_IDS = "city_ids"
+
         //константы для объекта Photo
         const val VKAPI_CONST_ALBUM_ID = "album_id"
         const val VKAPI_CONST_USER_ID = "user_id"
