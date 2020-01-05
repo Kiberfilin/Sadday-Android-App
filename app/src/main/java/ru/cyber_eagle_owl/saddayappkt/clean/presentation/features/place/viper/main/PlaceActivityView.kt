@@ -10,7 +10,7 @@ class PlaceActivityView @Inject constructor() : BaseView<PlaceMainViperContract.
     PlaceMainViperContract.MainView {
 
     override fun onFinishInflate(toolbox: RouterToolbox, isOrientationChanged: Boolean) {
-        Timber.d("onResume()")
+        Timber.d("onFinishInflate")
         initViews()
         presenter.apply {
             onViewCreated(this@PlaceActivityView)

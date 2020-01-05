@@ -27,7 +27,7 @@ class PlacesRepository @Inject constructor() : PlacesRepositoryInputPort {
         }.flatMap {
             Observable.fromIterable(it)
         }.flatMap {
-            zipping(it)
+            makingAdditionalRxApiCalls(it)
         }.toList().map {
             val tmpArrayList = ArrayList<PlaceItem>()
             tmpArrayList.addAll(it)
@@ -57,16 +57,16 @@ class PlacesRepository @Inject constructor() : PlacesRepositoryInputPort {
 
     }
 
-    fun zipping(address: Address): ObservableSource<PlaceItem> {
+    private fun makingAdditionalRxApiCalls(address: Address): ObservableSource<PlaceItem> {
 
         address.metro_station_id.also { metroStationId ->
             if (metroStationId == null || metroStationId == 0L) {
-                return getCityById(address.city_id!!).map {
+                return getCityById(address.city_id!!).map {city ->
                     //todo доделать маппер
                     PlaceItem(
                         address.title!!,
                         address.additional_address!!,
-                        address.address!! + it.title,
+                        address.address!! + city.title,
                         Coordinates(address.latitude!!, address.longitude!!)
                     )
                 }
@@ -89,13 +89,13 @@ class PlacesRepository @Inject constructor() : PlacesRepositoryInputPort {
 
     }
 
-    fun getCityById(cityId: Long): Observable<City> {
+    private fun getCityById(cityId: Long): Observable<City> {
         return Observable.fromCallable {
             VK.executeSync(CityRequest(cityId))
         }
     }
 
-    fun getMetroStationById(stationId: Long): Observable<MetroStation> {
+    private fun getMetroStationById(stationId: Long): Observable<MetroStation> {
         return Observable.fromCallable {
             VK.executeSync(MetroStationRequest(stationId))
         }
