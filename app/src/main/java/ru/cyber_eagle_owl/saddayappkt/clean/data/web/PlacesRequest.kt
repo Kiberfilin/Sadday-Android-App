@@ -23,6 +23,7 @@ class PlacesRequest : VKRequest<ArrayList<Address?>?>("groups.getAddresses") {
         for (i in 0 until items.length()) {
             result.add(Address.parse(items.getJSONObject(i)))
         }
+        Timber.d("result.size = ${result.size}")
         return result
     }
 
