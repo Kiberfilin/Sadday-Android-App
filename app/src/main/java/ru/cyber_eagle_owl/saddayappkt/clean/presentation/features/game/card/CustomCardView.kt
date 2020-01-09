@@ -2,6 +2,7 @@ package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.game.card
 
 import android.content.Context
 import android.graphics.*
+import android.os.Build
 import android.text.Layout
 import android.text.StaticLayout
 import android.text.TextPaint
@@ -125,19 +126,28 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
     init {
         //region settable properties initialization
         Timber.d("Settable properties initialization in progress")
-        val stylableAttr = context.theme.obtainStyledAttributes(attributeSet, R.styleable.CustomCardView, 0, 0)
+        val stylableAttr =
+            context.theme.obtainStyledAttributes(attributeSet, R.styleable.CustomCardView, 0, 0)
 
         for (i in 0..stylableAttr.indexCount) {
             when (stylableAttr.getIndex(i)) {
                 R.styleable.CustomCardView_cardImage -> {
                     cardImageBitmap = BitmapFactory.decodeResource(
                         resources,
-                        stylableAttr.getResourceId(R.styleable.CustomCardView_cardImage, R.drawable.logo),
+                        stylableAttr.getResourceId(
+                            R.styleable.CustomCardView_cardImage,
+                            R.drawable.logo
+                        ),
                         compressOptions
                     )
                 }
                 R.styleable.CustomCardView_cardName -> {
-                    cardName = resources.getString(stylableAttr.getResourceId(R.styleable.CustomCardView_cardName, 0))
+                    cardName = resources.getString(
+                        stylableAttr.getResourceId(
+                            R.styleable.CustomCardView_cardName,
+                            0
+                        )
+                    )
                 }
                 R.styleable.CustomCardView_shortDescriptionText -> {
                     shortDescriptionText =
@@ -158,15 +168,22 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
                         )
                 }
                 R.styleable.CustomCardView_rockPowerValue -> {
-                    rockPowerValue = stylableAttr.getInt(R.styleable.CustomCardView_rockPowerValue, 0)
+                    rockPowerValue =
+                        stylableAttr.getInt(R.styleable.CustomCardView_rockPowerValue, 0)
                 }
                 R.styleable.CustomCardView_maxAlcoholDigestibilityValue -> {
                     maxAlcoholDigestibilityValue =
-                        stylableAttr.getInt(R.styleable.CustomCardView_maxAlcoholDigestibilityValue, 0)
+                        stylableAttr.getInt(
+                            R.styleable.CustomCardView_maxAlcoholDigestibilityValue,
+                            0
+                        )
                 }
                 R.styleable.CustomCardView_acousticBrainProtectionValue -> {
                     acousticBrainProtectionValue =
-                        stylableAttr.getInt(R.styleable.CustomCardView_acousticBrainProtectionValue, 0)
+                        stylableAttr.getInt(
+                            R.styleable.CustomCardView_acousticBrainProtectionValue,
+                            0
+                        )
                 }
             }
         }
@@ -197,13 +214,12 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
         stylableAttr.recycle()
         Timber.d("Settable properties initialization ended")*/
 
-
         cardPaint.run {
-            color = resources.getColor(R.color.colorCardGray)
+            color = getColorAccordingVersion(R.color.colorCardGray)
             strokeWidth = 10f
         }
         cardNameTextPaint.run {
-            color = resources.getColor(R.color.colorCardNameText)
+            color = getColorAccordingVersion(R.color.colorCardNameText)
             isAntiAlias = true
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD)
         }
@@ -213,22 +229,22 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
             style = Paint.Style.STROKE
         }
         descriptionBacgroundPaint.run {
-            color = resources.getColor(R.color.colorCardDescriptionBackground)
+            color = getColorAccordingVersion(R.color.colorCardDescriptionBackground)
             style = Paint.Style.FILL_AND_STROKE
             strokeWidth = 3f
         }
         shortDescriptionPaint.run {
             isAntiAlias = true
-            color = resources.getColor(R.color.colorCardPrimaryText)
+            color = getColorAccordingVersion(R.color.colorCardPrimaryText)
         }
         specAbilityDescriptionPaint.run {
             isAntiAlias = true
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.BOLD_ITALIC)
-            color = resources.getColor(R.color.colorCardPrimaryText)
+            color = getColorAccordingVersion(R.color.colorCardPrimaryText)
         }
         cardStatsTextPaint.run {
             isAntiAlias = true
-            color = resources.getColor(R.color.colorCardPrimaryText)
+            color = getColorAccordingVersion(R.color.colorCardPrimaryText)
             typeface = Typeface.create(Typeface.DEFAULT, Typeface.ITALIC)
         }
         cardStatsValuePaint.run {
@@ -263,13 +279,12 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
 
     private fun prepareBitmaps(pointValue: Float) {
 
-        var sourceWidth: Int
-
         compressOptions.tuneForBoundsGetting()
         BitmapFactory.decodeResource(resources, R.drawable.logo, compressOptions)
-        sourceWidth = compressOptions.outWidth
+        var sourceWidth: Int = compressOptions.outWidth
         compressOptions.tuneForBitmapPreparation(sourceWidth, contentWidth, pointValue)
-        descriptionBackgroundBitmap = BitmapFactory.decodeResource(resources, R.drawable.logo, compressOptions)
+        descriptionBackgroundBitmap =
+            BitmapFactory.decodeResource(resources, R.drawable.logo, compressOptions)
 
         compressOptions.tuneForBoundsGetting()
         BitmapFactory.decodeResource(resources, cardImage, compressOptions)
@@ -287,7 +302,11 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
         }
     }
 
-    private fun BitmapFactory.Options.tuneForBitmapPreparation(sourceWidth: Int, outWidth: Int, pointValue: Float) {
+    private fun BitmapFactory.Options.tuneForBitmapPreparation(
+        sourceWidth: Int,
+        outWidth: Int,
+        pointValue: Float
+    ) {
         this.apply {
             inJustDecodeBounds = false
             inScaled = true
@@ -295,6 +314,7 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
             inTargetDensity = inSampleSize * outWidth * pointValue.toInt()
         }
     }
+
 
     private fun prepareCardNameTextArea(pointValue: Float, cardBorderOffset: Float) {
         cardNameTextPaint.textSize = cardNameTextSize * pointValue
@@ -310,16 +330,16 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
         cardNameTextArea =
             Rect(cardNameTextXOffset, cardNameTextYOffset, cardNameTextRight, cardNameTextBottom)
 
-        cardNameLayout =
-            StaticLayout(
-                cardName,
-                cardNameTextPaint,
-                (contentWidth * pointValue).toInt(),
-                Layout.Alignment.ALIGN_CENTER,
-                1f,
-                0f,
-                false
-            )
+        cardNameLayout = getProperStaticLayoutForText(
+            cardName,
+            cardNameTextPaint,
+            contentWidth,
+            pointValue,
+            1f,
+            0f,
+            false,
+            Layout.Alignment.ALIGN_CENTER
+        )
 
         cardNameTextPoint.x = cardNameTextArea.left.toFloat()
         cardNameTextPoint.y = cardNameTextArea.exactCenterY() - cardNameTextHeight / 2
@@ -372,26 +392,32 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
     ) {
         val cardStatTextHeight = getTextHeight(cardStatText, cardStatsTextPaint)
         val cardStatValueTextHeight =
-            getTextHeight(if (cardStatValue == -1) "immune" else cardStatValue.toString(), cardStatsValuePaint)
+            getTextHeight(
+                if (cardStatValue == -1) "immune" else cardStatValue.toString(),
+                cardStatsValuePaint
+            )
         val cardStatOffsetY: Int
-        val tmpCardStatTextLayout = StaticLayout(
+        val tmpCardStatTextLayout = getProperStaticLayoutForText(
             cardStatText,
             cardStatsTextPaint,
-            (cardStatsTextWidth * pointValue).toInt(),
-            Layout.Alignment.ALIGN_NORMAL,
+            cardStatsTextWidth,
+            pointValue,
             0.8f,
             0f,
-            false
+            false,
+            Layout.Alignment.ALIGN_NORMAL
         )
 
-        val tmpCardStatValueLayout = StaticLayout(
-            if (cardStatValue == -1) "immune" else cardStatValue.toString(),
+        val tmpCardStatValueText = if (cardStatValue == -1) "immune" else cardStatValue.toString()
+        val tmpCardStatValueLayout = getProperStaticLayoutForText(
+            tmpCardStatValueText,
             cardStatsValuePaint,
-            (cardStatsValueWidth * pointValue).toInt(),
-            Layout.Alignment.ALIGN_OPPOSITE,
+            cardStatsValueWidth,
+            pointValue,
             0.8f,
             0f,
-            false
+            false,
+            Layout.Alignment.ALIGN_OPPOSITE
         )
 
         val tmpCardStatTextPoint = PointF(0f, 0f)
@@ -406,14 +432,16 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
                 rockPowerValuePoint = tmpCardStatValuePoint
             }
             maxAlcoholDigestibilityText -> {
-                cardStatOffsetY = cardStatTextHeight + 2 * (cardStatsRowBottomMargin * pointValue).toInt()
+                cardStatOffsetY =
+                    cardStatTextHeight + 2 * (cardStatsRowBottomMargin * pointValue).toInt()
                 maxAlcoholDigestibilityTextLayout = tmpCardStatTextLayout
                 maxAlcoholDigestibilityValueLayout = tmpCardStatValueLayout
                 maxAlcoholDigestibilityTextPoint = tmpCardStatTextPoint
                 maxAlcoholDigestibilityValuePoint = tmpCardStatValuePoint
             }
             acousticBrainProtectionText -> {
-                cardStatOffsetY = 2 * cardStatTextHeight + 3 * (cardStatsRowBottomMargin * pointValue).toInt()
+                cardStatOffsetY =
+                    2 * cardStatTextHeight + 3 * (cardStatsRowBottomMargin * pointValue).toInt()
                 acousticBrainProtectionTextLayout = tmpCardStatTextLayout
                 acousticBrainProtectionValueLayout = tmpCardStatValueLayout
                 acousticBrainProtectionTextPoint = tmpCardStatTextPoint
@@ -422,7 +450,13 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
             else -> throw IllegalArgumentException("Wrong card stat text!!!")
         }
 
-        prepareAreas(cardStatOffsetY, pointValue, cardStatTextHeight, cardStatTextArea, cardStatValueArea)
+        prepareAreas(
+            cardStatOffsetY,
+            pointValue,
+            cardStatTextHeight,
+            cardStatTextArea,
+            cardStatValueArea
+        )
 
         tmpCardStatTextPoint.x = cardStatTextArea.left.toFloat()
         tmpCardStatTextPoint.y = cardStatTextArea.exactCenterY() - cardStatTextHeight / 2
@@ -470,7 +504,8 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
 
         specAbilityDescriptionPaint.textSize = specAbilityDescriptionSize * pointValue
 
-        val specAbilityDescriptionTextHeight = getTextHeight(specAbilityDescriptionText, specAbilityDescriptionPaint)
+        val specAbilityDescriptionTextHeight =
+            getTextHeight(specAbilityDescriptionText, specAbilityDescriptionPaint)
 
         val specAbilityDescriptionXOffset =
             (pointValue * (borderWidth + (contentWidth - shortAndSpecAbilityDescriptionWith) / 2)).toInt()
@@ -478,7 +513,8 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
             (pointValue * (borderWidth + imgHeight + cardNameHeight + 2 * shortAndSpecAbilityDescriptionTopMargin)).toInt() + shortDescriptionArea.height()
         val specAbilityDescriptionRight =
             specAbilityDescriptionXOffset + (pointValue * shortAndSpecAbilityDescriptionWith).toInt()
-        val specAbilityDescriptionBottom = specAbilityDescriptionYOffset + 2 * specAbilityDescriptionTextHeight
+        val specAbilityDescriptionBottom =
+            specAbilityDescriptionYOffset + 2 * specAbilityDescriptionTextHeight
 
         specAbilityDescriptionArea =
             Rect(
@@ -488,16 +524,16 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
                 specAbilityDescriptionBottom
             )
 
-        specAbilityDescriptionLayout =
-            StaticLayout(
-                specAbilityDescriptionText,
-                specAbilityDescriptionPaint,
-                (shortAndSpecAbilityDescriptionWith * pointValue).toInt(),
-                Layout.Alignment.ALIGN_NORMAL,
-                0.8f,
-                0f,
-                false
-            )
+        specAbilityDescriptionLayout = getProperStaticLayoutForText(
+            specAbilityDescriptionText,
+            specAbilityDescriptionPaint,
+            shortAndSpecAbilityDescriptionWith,
+            pointValue,
+            0.8f,
+            0f,
+            false,
+            Layout.Alignment.ALIGN_NORMAL
+        )
 
         specAbilityDescriptionTextPoint.x = specAbilityDescriptionArea.left.toFloat()
         specAbilityDescriptionTextPoint.y =
@@ -514,22 +550,28 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
             (pointValue * (borderWidth + (contentWidth - shortAndSpecAbilityDescriptionWith) / 2)).toInt()
         val shortDescriptionYOffset =
             (pointValue * (borderWidth + imgHeight + cardNameHeight + shortAndSpecAbilityDescriptionTopMargin)).toInt()
-        val shortDescriptionRight = shortDescriptionXOffset + (pointValue * shortAndSpecAbilityDescriptionWith).toInt()
+        val shortDescriptionRight =
+            shortDescriptionXOffset + (pointValue * shortAndSpecAbilityDescriptionWith).toInt()
         val shortDescriptionBottom = shortDescriptionYOffset + 2 * shortDescriptionTextHeight
 
         shortDescriptionArea =
-            Rect(shortDescriptionXOffset, shortDescriptionYOffset, shortDescriptionRight, shortDescriptionBottom)
-
-        shortDescriptionLayout =
-            StaticLayout(
-                shortDescriptionText,
-                shortDescriptionPaint,
-                (shortAndSpecAbilityDescriptionWith * pointValue).toInt(),
-                Layout.Alignment.ALIGN_CENTER,
-                0.7f,
-                0f,
-                false
+            Rect(
+                shortDescriptionXOffset,
+                shortDescriptionYOffset,
+                shortDescriptionRight,
+                shortDescriptionBottom
             )
+
+        shortDescriptionLayout = getProperStaticLayoutForText(
+            shortDescriptionText,
+            shortDescriptionPaint,
+            shortAndSpecAbilityDescriptionWith,
+            pointValue,
+            0.7f,
+            0f,
+            false,
+            Layout.Alignment.ALIGN_CENTER
+        )
 
         shortDescriptionTextPoint.x = shortDescriptionArea.left.toFloat()
         shortDescriptionTextPoint.y =
@@ -566,6 +608,50 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
         return tmpRect.height()
     }
 
+    private fun getColorAccordingVersion(colorId: Int): Int {
+        return if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            resources.getColor(colorId, context.theme)
+        } else {
+            @Suppress("DEPRECATION")
+            resources.getColor(colorId)
+        }
+    }
+
+    private fun getProperStaticLayoutForText(
+        text: CharSequence,
+        paint: TextPaint,
+        width: Int,
+        pointValue: Float,
+        spasingMult: Float,
+        spasingAdd: Float,
+        includePad: Boolean,
+        alignment: Layout.Alignment
+    ): StaticLayout {
+        return if (Build.VERSION.SDK_INT < Build.VERSION_CODES.M) {
+            @Suppress("DEPRECATION")
+            StaticLayout(
+                text,
+                paint,
+                (width * pointValue).toInt(),
+                alignment,
+                spasingMult,
+                spasingAdd,
+                includePad
+            )
+        } else {
+            StaticLayout.Builder.obtain(
+                text,
+                0,
+                text.length,
+                paint,
+                (width * pointValue).toInt()
+            ).setAlignment(alignment)
+                .setLineSpacing(spasingAdd, spasingMult)
+                .setIncludePad(includePad)
+                .build()
+        }
+    }
+
     override fun onLayout(changed: Boolean, left: Int, top: Int, right: Int, bottom: Int) {
         super.onLayout(changed, left, top, right, bottom)
         Timber.d("onLayout")
@@ -575,7 +661,12 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
     override fun onDraw(canvas: Canvas?) {
         drawCardWithoutText(canvas)
         drawTextElement(cardNameTextPoint.x, cardNameTextPoint.y, cardNameLayout, canvas)
-        drawTextElement(shortDescriptionTextPoint.x, shortDescriptionTextPoint.y, shortDescriptionLayout, canvas)
+        drawTextElement(
+            shortDescriptionTextPoint.x,
+            shortDescriptionTextPoint.y,
+            shortDescriptionLayout,
+            canvas
+        )
         drawTextElement(
             specAbilityDescriptionTextPoint.x,
             specAbilityDescriptionTextPoint.y,
@@ -586,10 +677,10 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
     }
 
     private fun drawCardStats(canvas: Canvas?) {
-        cardStatsValuePaint.color = resources.getColor(R.color.colorRockPowerValue)
+        cardStatsValuePaint.color = getColorAccordingVersion(R.color.colorRockPowerValue)
         drawTextElement(rockPowerTextPoint.x, rockPowerTextPoint.y, rockPowerTextLayout, canvas)
         drawTextElement(rockPowerValuePoint.x, rockPowerValuePoint.y, rockPowerValueLayout, canvas)
-        cardStatsValuePaint.color = resources.getColor(R.color.colormaxAlcoholDigestibilityValue)
+        cardStatsValuePaint.color = getColorAccordingVersion(R.color.colormaxAlcoholDigestibilityValue)
         drawTextElement(
             maxAlcoholDigestibilityTextPoint.x,
             maxAlcoholDigestibilityTextPoint.y,
@@ -602,7 +693,7 @@ class CustomCardView(context: Context, attributeSet: AttributeSet) : View(contex
             maxAlcoholDigestibilityValueLayout,
             canvas
         )
-        cardStatsValuePaint.color = resources.getColor(R.color.coloracousticBrainProtectionValue)
+        cardStatsValuePaint.color = getColorAccordingVersion(R.color.coloracousticBrainProtectionValue)
         drawTextElement(
             acousticBrainProtectionTextPoint.x,
             acousticBrainProtectionTextPoint.y,

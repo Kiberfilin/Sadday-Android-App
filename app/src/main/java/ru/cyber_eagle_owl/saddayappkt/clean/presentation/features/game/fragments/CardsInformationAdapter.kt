@@ -1,7 +1,7 @@
 package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.game.fragments
 
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +11,7 @@ import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.presentation.CardItem
 import timber.log.Timber
 
 class CardsInformationAdapter :
-    RecyclerView.Adapter<CardsInformationAdapter.CardsListingViewHolder>() {
+    androidx.recyclerview.widget.RecyclerView.Adapter<CardsInformationAdapter.CardsListingViewHolder>() {
 
     var cardsItems: List<CardItem> = ArrayList()
 
@@ -41,7 +41,7 @@ class CardsInformationAdapter :
         holder.bind(cardsItems[position])
     }
 
-    class CardsListingViewHolder(var view: View) : RecyclerView.ViewHolder(view) {
+    class CardsListingViewHolder(var view: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
         private val cardExampleAdapter = CardsExamplesListingAdapter()
 
         fun bind(item: CardItem) {
@@ -67,7 +67,11 @@ class CardsInformationAdapter :
 
                 cardExampleAdapter.card = item
                 cardsExamplesListingRV.layoutManager =
-                    LinearLayoutManager(view.context, LinearLayoutManager.HORIZONTAL, false)
+                    androidx.recyclerview.widget.LinearLayoutManager(
+                        view.context,
+                        androidx.recyclerview.widget.LinearLayoutManager.HORIZONTAL,
+                        false
+                    )
                 cardsExamplesListingRV.adapter = cardExampleAdapter
                 cardExampleAdapter.notifyDataSetChanged()
             }

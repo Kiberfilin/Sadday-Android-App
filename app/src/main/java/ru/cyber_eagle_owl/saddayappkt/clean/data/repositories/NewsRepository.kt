@@ -35,7 +35,7 @@ class NewsRepository : NewsRepositoryInputPort {
         Timber.d("startGettingNews()")
 
         VK.execute(NewsRequest(), object : VKApiCallback<List<Item?>?> {
-            override fun fail(error: VKApiExecutionException) {
+            override fun fail(error: Exception) {
                 Timber.d(error)
             }
 
@@ -67,7 +67,7 @@ class NewsRepository : NewsRepositoryInputPort {
         Timber.d("startGettingAuthors(result: List<Item?>?, authorIds: StringBuilder)")
 
         VK.execute(VkUsersRequest(authorIds.toString()), object : VKApiCallback<List<VkUser?>?> {
-            override fun fail(error: VKApiExecutionException) {
+            override fun fail(error: Exception) {
                 Timber.d(error)
             }
 
@@ -84,7 +84,7 @@ class NewsRepository : NewsRepositoryInputPort {
         tmpGroupId.delete(0, 1)
 
         VK.execute(VkGroupRequest(tmpGroupId.toString()), object : VKApiCallback<Group?> {
-            override fun fail(error: VKApiExecutionException) {
+            override fun fail(error: Exception) {
                 Timber.d(error)
             }
 

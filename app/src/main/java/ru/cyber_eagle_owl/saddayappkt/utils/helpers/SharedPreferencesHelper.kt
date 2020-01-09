@@ -10,7 +10,7 @@ class SharedPreferencesHelper(var sharedPreferences: SharedPreferences) {
             .apply()
     }
 
-    fun getStringData(key: String): String {
+    fun getStringData(key: String): String? {
         return sharedPreferences.getString(key, "")
     }
 }

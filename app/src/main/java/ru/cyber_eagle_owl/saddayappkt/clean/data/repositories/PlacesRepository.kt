@@ -33,28 +33,6 @@ class PlacesRepository @Inject constructor() : PlacesRepositoryInputPort {
             tmpArrayList.addAll(it)
             tmpArrayList
         }
-
-        /*val tmpListOfPlaces = arrayListOf(
-            PlaceItem(
-                "SADDAY TEST 1",
-                "All your base are belong to us",
-                "Улица Пушкина, дом Колотушкина"
-            ),
-            PlaceItem(
-                "SADDAY TEST 2",
-                "All your base are belong to us",
-                "Улица Пушкина, дом Колотушкина"
-            ),
-            PlaceItem(
-                "SADDAY TEST 3",
-                "All your base are belong to us",
-                "Улица Пушкина, дом Колотушкина"
-            )
-        )
-        return Single.create { observer ->
-            observer.onSuccess(tmpListOfPlaces)
-        }*/
-
     }
 
     private fun makingAdditionalRxApiCalls(address: Address): ObservableSource<PlaceItem> {
@@ -86,5 +64,4 @@ class PlacesRepository @Inject constructor() : PlacesRepositoryInputPort {
             VK.executeSync(MetroStationRequest(stationId))
         }
     }
-
 }

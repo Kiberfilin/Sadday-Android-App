@@ -12,6 +12,11 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme" tools:ignore="GoogleAppIndexingWarning">
+
+        <meta-data
+                android:name="OnlineMaps.Key"
+                android:value="9u50ZzW4tirGVQR1BXUO8rtcv7rnLFo6" />
+
         <activity android:name="ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.authorization.WelcomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>

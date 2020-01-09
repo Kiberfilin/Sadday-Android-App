@@ -4,8 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.StaggeredGridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_main_menu.*
 import ru.cyber_eagle_owl.saddayappkt.R
@@ -53,7 +53,7 @@ class MainMenuActivity : BaseActivity(), MainMenuMvp.View, MainMenuRecyclerAdapt
             }
 
             adapter = MainMenuRecyclerAdapter(this@MainMenuActivity)
-            adapter.notifyDataSetChanged()
+            (adapter as MainMenuRecyclerAdapter).notifyDataSetChanged()
         }
     }
 

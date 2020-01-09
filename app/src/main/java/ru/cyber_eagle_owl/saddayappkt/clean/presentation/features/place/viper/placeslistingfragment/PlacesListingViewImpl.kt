@@ -1,9 +1,9 @@
 package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.viper.placeslistingfragment
 
 import android.content.res.Configuration
-import android.support.v4.widget.SwipeRefreshLayout
-import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -25,7 +25,7 @@ class PlacesListingViewImpl @Inject constructor() :
     PlacesListingRecyclerViewAdapter.OnItemClickListener {
 
     private lateinit var placesListingSwipeRefresh: SwipeRefreshLayout
-    private lateinit var placesListingRecyclerView: RecyclerView
+    private lateinit var placesListingRecyclerView: androidx.recyclerview.widget.RecyclerView
     private lateinit var placesListingAdapter: PlacesListingRecyclerViewAdapter
     private lateinit var onRefreshListener: SwipeRefreshLayout.OnRefreshListener
 
@@ -81,7 +81,8 @@ class PlacesListingViewImpl @Inject constructor() :
                 (layoutParams as ViewGroup.MarginLayoutParams).marginEnd = (48 * dens).toInt()
             }
 
-            placesListingRecyclerView.layoutManager = LinearLayoutManager(viperRootView.context)
+            placesListingRecyclerView.layoutManager =
+                androidx.recyclerview.widget.LinearLayoutManager(viperRootView.context)
             placesListingRecyclerView.adapter = placesListingAdapter
         }
     }

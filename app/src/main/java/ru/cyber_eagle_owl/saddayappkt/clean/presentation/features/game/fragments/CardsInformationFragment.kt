@@ -1,7 +1,7 @@
 package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.game.fragments
 
 import android.os.Bundle
-import android.support.v7.widget.LinearLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,9 +41,10 @@ class CardsInformationFragment : BaseFragment(), GameMvp.View {
 
         cardsInformationAdapter =
             CardsInformationAdapter()
-        cardsListingRV.layoutManager = LinearLayoutManager(this.context)
+        cardsListingRV.layoutManager =
+            androidx.recyclerview.widget.LinearLayoutManager(this.context)
         cardsListingRV.adapter = cardsInformationAdapter
-        cardsListingRV.adapter.notifyDataSetChanged()
+        (cardsListingRV.adapter as CardsInformationAdapter).notifyDataSetChanged()
     }
 
     override fun showCardsInfo(cards: List<CardItem>) {
