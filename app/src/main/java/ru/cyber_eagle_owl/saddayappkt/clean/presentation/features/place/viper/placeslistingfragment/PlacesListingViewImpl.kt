@@ -2,8 +2,6 @@ package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.viper.p
 
 import android.content.res.Configuration
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.ViewGroup
 import io.reactivex.Single
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -14,7 +12,7 @@ import ru.cyber_eagle_owl.saddayappkt.R
 import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.presentation.PlaceItem
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.fragments.PlacesListingRecyclerViewAdapter
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.viper.PlacesListingViperContract
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.vipercore.BaseView
+import ru.cyber_eagle_owl.saddayappkt.clean.vipercore.BaseView
 import ru.cyber_eagle_owl.saddayappkt.utils.wrappers.RouterToolbox
 import timber.log.Timber
 import javax.inject.Inject

@@ -1,7 +1,7 @@
 package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.viper.main
 
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.viper.PlaceMainViperContract
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.vipercore.BasePresenter
+import ru.cyber_eagle_owl.saddayappkt.clean.vipercore.BasePresenter
 import ru.cyber_eagle_owl.saddayappkt.utils.wrappers.RouterToolbox
 import timber.log.Timber
 import javax.inject.Inject

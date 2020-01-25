@@ -3,7 +3,7 @@ package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.viper.m
 import ru.cyber_eagle_owl.saddayappkt.R
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.fragments.PlacesListingFragment
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.viper.PlaceMainViperContract
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.vipercore.BaseRouter
+import ru.cyber_eagle_owl.saddayappkt.clean.vipercore.BaseRouter
 import timber.log.Timber
 import javax.inject.Inject
 

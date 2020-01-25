@@ -4,10 +4,10 @@ import com.vk.api.sdk.VK
 import com.vk.api.sdk.VKTokenExpiredHandler
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
+import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.authorization.WelcomeActivity
 import ru.cyber_eagle_owl.saddayappkt.di.AppComponent
 import ru.cyber_eagle_owl.saddayappkt.di.AppModule
 import ru.cyber_eagle_owl.saddayappkt.di.DaggerAppComponent
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.authorization.WelcomeActivity
 import timber.log.Timber
 
 class App : DaggerApplication() {

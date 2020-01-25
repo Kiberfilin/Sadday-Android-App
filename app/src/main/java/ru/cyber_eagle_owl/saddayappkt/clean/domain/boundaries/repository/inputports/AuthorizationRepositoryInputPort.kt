@@ -1,13 +1,9 @@
 package ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.repository.inputports
 
-import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.repository.outputports.AuthorizationRepositoryOutputPort
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.mvpcore.MvpView
+import io.reactivex.Single
+import ru.cyber_eagle_owl.saddayappkt.utils.wrappers.RouterToolbox
 
 interface AuthorizationRepositoryInputPort {
-
-    fun setOutputPort(outputPort: AuthorizationRepositoryOutputPort)
-
-    fun isLoggedIn()
-
-    fun login(mvpView: MvpView)
+    fun isLoggedIn(): Single<Boolean>
+    fun login(routerToolBox: RouterToolbox)
 }

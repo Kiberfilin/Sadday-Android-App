@@ -1,3 +1,0 @@
-package ru.cyber_eagle_owl.saddayappkt.clean.presentation.vipercore
-
-interface ViperPresenter

@@ -4,7 +4,7 @@ import io.reactivex.Single
 import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.presentation.PlaceItem
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.presenter.inputports.GetPlacesInputPort
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.viper.PlacesListingViperContract
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.vipercore.BasePresenter
+import ru.cyber_eagle_owl.saddayappkt.clean.vipercore.BasePresenter
 import ru.cyber_eagle_owl.saddayappkt.utils.wrappers.RouterToolbox
 import javax.inject.Inject
 

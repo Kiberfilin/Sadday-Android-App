@@ -2,9 +2,9 @@ package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.viper
 
 import io.reactivex.Single
 import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.presentation.PlaceItem
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.vipercore.ViperPresenter
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.vipercore.ViperRouter
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.vipercore.ViperView
+import ru.cyber_eagle_owl.saddayappkt.clean.vipercore.ViperPresenter
+import ru.cyber_eagle_owl.saddayappkt.clean.vipercore.ViperRouter
+import ru.cyber_eagle_owl.saddayappkt.clean.vipercore.ViperView
 import ru.cyber_eagle_owl.saddayappkt.utils.wrappers.RouterToolbox
 
 interface PlaceMainViperContract {

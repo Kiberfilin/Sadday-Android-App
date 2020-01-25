@@ -1,8 +1,8 @@
 package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.game
 
 import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.presentation.CardItem
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.mvpcore.MvpPresenter
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.mvpcore.MvpView
+import ru.cyber_eagle_owl.saddayappkt.clean.mvpcore.MvpPresenter
+import ru.cyber_eagle_owl.saddayappkt.clean.mvpcore.MvpView
 
 interface GameMvp {
 

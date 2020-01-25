@@ -1,6 +1,6 @@
 package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.menu
 
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.mvpcore.BasePresenter
+import ru.cyber_eagle_owl.saddayappkt.clean.mvpcore.BasePresenter
 import javax.inject.Inject
 
 class MainMenuPresenter @Inject constructor() :

@@ -1,4 +1,4 @@
-package ru.cyber_eagle_owl.saddayappkt.clean.presentation.vipercore
+package ru.cyber_eagle_owl.saddayappkt.clean.vipercore
 
 import android.view.View
 
