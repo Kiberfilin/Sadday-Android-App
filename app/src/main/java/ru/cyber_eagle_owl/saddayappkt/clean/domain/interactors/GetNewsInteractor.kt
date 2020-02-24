@@ -7,10 +7,10 @@ import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.repository.inputpo
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.repository.outputports.NewsRepositoryOutputPort
 import timber.log.Timber
 
-class GetNewsInteractor (
+class GetNewsInteractor(
     private val presentationOutputPort: GetNewsOutputPort,
     private val dataInputPort: NewsRepositoryInputPort
-): GetNewsInputPort, NewsRepositoryOutputPort {
+) : GetNewsInputPort, NewsRepositoryOutputPort {
 
     init {
         Timber.d("init")

@@ -3,8 +3,8 @@ package ru.cyber_eagle_owl.saddayappkt.clean.data.web
 import com.vk.api.sdk.requests.VKRequest
 import org.json.JSONObject
 import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.data.Item
-import timber.log.Timber
 import ru.cyber_eagle_owl.saddayappkt.constants.VkConstants
+import timber.log.Timber
 
 class NewsRequest : VKRequest<List<Item?>?>("wall.get") {
 

@@ -1,4 +1,4 @@
-package ru.cyber_eagle_owl.saddayappkt.clean.presentation.mvpcore
+package ru.cyber_eagle_owl.saddayappkt.clean.mvpcore
 
 import javax.inject.Inject
 

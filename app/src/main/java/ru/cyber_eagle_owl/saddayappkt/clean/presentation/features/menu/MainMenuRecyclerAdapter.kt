@@ -1,7 +1,7 @@
 package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.menu
 
 import android.content.Context
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +10,7 @@ import ru.cyber_eagle_owl.saddayappkt.R
 import timber.log.Timber
 
 class MainMenuRecyclerAdapter(private val context: Context) :
-    RecyclerView.Adapter<MainMenuRecyclerAdapter.MainMenuItemViewHolder>() {
+    androidx.recyclerview.widget.RecyclerView.Adapter<MainMenuRecyclerAdapter.MainMenuItemViewHolder>() {
 
     //    private lateinit var titlesOfMainMenuItems: HashMap<Int, Int>
     private var titlesOfMainMenuItems = hashMapOf<Int, Int>()
@@ -59,7 +59,7 @@ class MainMenuRecyclerAdapter(private val context: Context) :
     }
 
     class MainMenuItemViewHolder(val view: View, onMenuItemClickListener: OnMenuItemClickListener) :
-        RecyclerView.ViewHolder(view) {
+        androidx.recyclerview.widget.RecyclerView.ViewHolder(view) {
 
         init {
             view.setOnClickListener {

@@ -1,12 +1,9 @@
 package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.news
 
-import android.support.v7.widget.RecyclerView
-import android.text.TextUtils
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.ViewTreeObserver
-import com.jakewharton.rxbinding2.widget.RxTextView
 import kotlinx.android.synthetic.main.news_post_item.view.*
 import ru.cyber_eagle_owl.saddayappkt.R
 import ru.cyber_eagle_owl.saddayappkt.clean.data.entities.presentation.NewsItem

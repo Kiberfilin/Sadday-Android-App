@@ -5,8 +5,8 @@ import dagger.Module
 import dagger.Provides
 import dagger.android.support.DaggerApplication
 import ru.cyber_eagle_owl.saddayappkt.di.scopes.ApplicationScope
-import ru.cyber_eagle_owl.saddayappkt.utils.ResourcesHelper
-import ru.cyber_eagle_owl.saddayappkt.utils.SharedPreferencesHelper
+import ru.cyber_eagle_owl.saddayappkt.utils.helpers.ResourcesHelper
+import ru.cyber_eagle_owl.saddayappkt.utils.helpers.SharedPreferencesHelper
 import timber.log.Timber
 
 @Module
@@ -19,7 +19,12 @@ class AppModule(private val application: DaggerApplication) {
     @Provides
     @ApplicationScope
     fun provideSharedPreferencesHelper(context: Context): SharedPreferencesHelper {
-        return SharedPreferencesHelper(context.getSharedPreferences("SADDAY APP", Context.MODE_PRIVATE))
+        return SharedPreferencesHelper(
+            context.getSharedPreferences(
+                "SADDAY APP",
+                Context.MODE_PRIVATE
+            )
+        )
     }
 
     @Provides

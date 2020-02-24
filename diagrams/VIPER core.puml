@@ -1,0 +1,124 @@
+@startuml
+
+package vipercore {
+
+    interface ViperView<P : ViperPresenter>{
+        ~val viperRootView: View
+        ~val presenter: P
+        ~fun setRootView(rootView: View)
+    }
+
+    interface ViperPresenter
+
+    interface ViperRouter{
+        ~val toolbox: RouterToolbox
+        ~fun setToolsForRouting(toolbox: RouterToolbox)
+    }
+
+    abstract class BaseView<P : ViperPresenter> {
+        @Inject
+        ~override lateinit var presenter: P
+        ~override lateinit var viperRootView: View
+        ~override fun setRootView(rootView: View)
+    }
+
+    abstract class BasePresenter
+
+    abstract class BaseRouter{
+        ~override lateinit var toolbox: RouterToolbox
+        ~override fun setToolsForRouting(toolbox: RouterToolbox)
+    }
+
+    ViperRouter <|.. BaseRouter
+    ViperView <|.. BaseView
+    ViperPresenter <|.. BasePresenter
+}
+
+package feature {
+
+    artifact FeatureViperContract.kt #96c6b8{
+
+		package "Interfaces for main screen" <<Rectangle>>{
+			interface MainView {
+				~fun onFinishInflate(toolbox: RouterToolbox)
+			}
+
+			interface MainPresenter {
+				~var view: MainView
+				~fun onViewCreated(view: MainView)
+				~fun onFinishInflate(toolbox: RouterToolbox)
+			}
+
+			interface MainRouter
+
+			ViperView <|-- MainView : MainView : ViperView<MainPresenter>
+			ViperPresenter <|-- MainPresenter
+			ViperRouter <|-- MainRouter
+		}
+
+		package "Interfaces for another screen" <<Rectangle>>{
+			interface AnotherView {
+				~fun onFinishInflate(toolbox: RouterToolbox)
+			}
+
+			interface AnotherPresenter {
+				~var view: AnotherView
+				~fun onViewCreated(view: AnotherView)
+				~fun onFinishInflate(toolbox: RouterToolbox)
+			}
+
+			interface AnotherRouter
+
+			ViperView <|-- AnotherView : AnotherView : ViperView<AnotherPresenter>
+			ViperPresenter <|-- AnotherPresenter
+			ViperRouter <|-- AnotherRouter
+		}
+    }
+
+    package "Main screen" <<Rectangle>>{
+        class MainFeatureView {
+                ~override fun onFinishInflate(toolbox: RouterToolbox)
+                -fun initViews()
+            }
+
+            class MainFeaturePresenter{
+                @Inject
+                ~override lateinit var view: FeatureViperContract.MainView
+                ~override fun onFinishInflate(toolbox: RouterToolbox)
+                ~override fun onViewCreated(view: FeatureViperContract.MainView)
+            }
+
+            class MainFeatureRouter
+
+		BasePresenter <|-- MainFeaturePresenter
+		MainPresenter <|.. MainFeaturePresenter
+		BaseRouter <|-- MainFeatureRouter
+		MainRouter <|.. MainFeatureRouter
+		BaseView <|-- MainFeatureView : MainFeatureView : BaseView<FeatureViperContract.MainPresenter>()
+		MainView <|.. MainFeatureView : MainFeatureView : FeatureViperContract.MainView
+    }
+
+    package "Another screen" <<Rectangle>>{
+            class AnotherFeatureView {
+                    ~override fun onFinishInflate(toolbox: RouterToolbox)
+                    -fun initViews()
+                }
+
+                class AnotherFeaturePresenter{
+                    @Inject
+                    ~override lateinit var view: FeatureViperContract.AnotherView
+                    ~override fun onFinishInflate(toolbox: RouterToolbox)
+                    ~override fun onViewCreated(view: FeatureViperContract.AnotherView)
+                }
+
+                class AnotherFeatureRouter
+
+    		BasePresenter <|-- AnotherFeaturePresenter
+    		AnotherPresenter <|.. AnotherFeaturePresenter
+    		BaseRouter <|-- AnotherFeatureRouter
+    		AnotherRouter <|.. AnotherFeatureRouter
+    		BaseView <|-- AnotherFeatureView : AnotherFeatureView : BaseView<FeatureViperContract.AnotherPresenter>()
+    		AnotherView <|.. MainFeatureView : AnotherFeatureView : FeatureViperContract.AnotherView
+        }
+}
+@enduml

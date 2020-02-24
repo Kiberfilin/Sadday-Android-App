@@ -8,7 +8,7 @@
         tools:context=".clean.presentation.features.game.GameActivity">
 
     <ImageView
-            android:id="@+id/newsListingBackground"
+            android:id="@+id/placeActivityBackground"
             android:src="@drawable/main_screen_background_3"
             android:scaleType="centerCrop"
             android:fitsSystemWindows="true"
@@ -28,7 +28,7 @@
                 style="@style/Toolbar"
                 layout="@layout/toolbar"/>
 
-        <android.support.design.widget.TabLayout
+        <com.google.android.material.tabs.TabLayout
                 android:id="@+id/gameActivityTabs"
                 android:background="@color/colorShadeForFrontEndElements"
                 android:padding="2dp"
@@ -36,7 +36,7 @@
                 android:layout_height="wrap_content" app:tabGravity="center"
                 app:tabTextColor="@color/colorMainText" app:tabSelectedTextColor="@color/colorMainText"/>
 
-        <android.support.v4.view.ViewPager
+        <androidx.viewpager.widget.ViewPager
                 android:id="@+id/gameActivityPager"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"/>

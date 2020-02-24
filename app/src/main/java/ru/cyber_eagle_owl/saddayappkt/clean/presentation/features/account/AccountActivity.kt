@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import com.vk.api.sdk.VK
 import kotlinx.android.synthetic.main.placeholder_layout_for_many_activityes.*
 import ru.cyber_eagle_owl.saddayappkt.R
 import ru.cyber_eagle_owl.saddayappkt.base.BaseActivity
@@ -18,6 +19,7 @@ class AccountActivity  : BaseActivity(), AccountMvp.View {
         setContentView(R.layout.placeholder_layout_for_many_activityes)
 
         textView.text = localClassName
+        VK.logout()
     }
 
     override fun showToast(toastText: String) {

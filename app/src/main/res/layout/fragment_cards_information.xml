@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.v7.widget.RecyclerView
+<androidx.recyclerview.widget.RecyclerView
         android:id="@+id/cardsListingRV"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -11,4 +11,4 @@
         tools:context=".clean.presentation.features.game.fragments.CardsInformationFragment"
         tools:listitem="@layout/cards_description_listing_item">
 
-</android.support.v7.widget.RecyclerView>
+</androidx.recyclerview.widget.RecyclerView>

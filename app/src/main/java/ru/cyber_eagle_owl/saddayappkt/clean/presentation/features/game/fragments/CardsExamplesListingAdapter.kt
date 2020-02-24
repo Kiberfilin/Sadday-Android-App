@@ -1,6 +1,6 @@
 package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.game.fragments
 
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,7 +33,7 @@ class CardsExamplesListingAdapter : RecyclerView.Adapter<CardsExamplesListingAda
         holder.bind(card, position)
     }
 
-    class CardExampleViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {
+    class CardExampleViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         fun bind(item: CardItem, position: Int) {
             Timber.d("bind(item: CardItem)")

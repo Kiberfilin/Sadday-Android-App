@@ -1,7 +1,7 @@
 package ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.information
 
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.mvpcore.MvpPresenter
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.mvpcore.MvpView
+import ru.cyber_eagle_owl.saddayappkt.clean.mvpcore.MvpPresenter
+import ru.cyber_eagle_owl.saddayappkt.clean.mvpcore.MvpView
 
 interface InformationMvp {
 

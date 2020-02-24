@@ -1,15 +1,18 @@
 package ru.cyber_eagle_owl.saddayappkt.clean.domain.interactors
 
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.presenter.inputports.LogInInputPort
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.mvpcore.MvpView
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.repository.inputports.AuthorizationRepositoryInputPort
+import ru.cyber_eagle_owl.saddayappkt.utils.wrappers.RouterToolbox
 import timber.log.Timber
+import javax.inject.Inject
 
-class LogInInteractor(private val authRepo: AuthorizationRepositoryInputPort) : LogInInputPort {
+class LogInInteractor @Inject constructor() : LogInInputPort {
 
-    override fun execute(mvpView: MvpView) {
-        Timber.d("execute(mvpView: MvpView)")
+    @Inject
+    lateinit var dataInputPort: AuthorizationRepositoryInputPort
 
-        authRepo.login(mvpView)
+    override fun execute(routerToolBox: RouterToolbox) {
+        Timber.d("execute(routerToolBox: RouterToolbox)")
+        dataInputPort.login(routerToolBox)
     }
 }

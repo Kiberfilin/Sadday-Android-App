@@ -2,7 +2,6 @@ package ru.cyber_eagle_owl.saddayappkt.di
 
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
-import ru.cyber_eagle_owl.saddayappkt.di.scopes.ActivityScope
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.about.AboutActivity
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.account.AccountActivity
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.authorization.WelcomeActivity
@@ -16,7 +15,9 @@ import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.menu.MainMenuM
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.news.NewsActivity
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.news.NewsModule
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.PlaceActivity
+import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.place.PlaceMainModule
 import ru.cyber_eagle_owl.saddayappkt.clean.presentation.features.tickets.TicketsActivity
+import ru.cyber_eagle_owl.saddayappkt.di.scopes.ActivityScope
 
 @Module
 abstract class ActivityBindingModule {
@@ -54,7 +55,7 @@ abstract class ActivityBindingModule {
     abstract fun bindNewsActivity(): NewsActivity
 
     @ActivityScope
-    @ContributesAndroidInjector
+    @ContributesAndroidInjector(modules = [PlaceMainModule::class])
     abstract fun bindPlaceActivity(): PlaceActivity
 
     @ActivityScope

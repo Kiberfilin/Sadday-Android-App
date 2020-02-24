@@ -5,8 +5,8 @@ import ru.cyber_eagle_owl.saddayappkt.clean.data.repositories.CardsRepository
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.presenter.inputports.GetCardsInputPort
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.presenter.outputports.GetCardsOutputPort
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.interactors.GetCardsInteractor
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.mvpcore.BasePresenter
-import ru.cyber_eagle_owl.saddayappkt.utils.ResourcesHelper
+import ru.cyber_eagle_owl.saddayappkt.clean.mvpcore.BasePresenter
+import ru.cyber_eagle_owl.saddayappkt.utils.helpers.ResourcesHelper
 import timber.log.Timber
 import javax.inject.Inject
 

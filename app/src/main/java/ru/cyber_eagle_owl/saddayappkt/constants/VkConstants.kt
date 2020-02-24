@@ -7,6 +7,7 @@ class VkConstants {
     companion object {
 
         const val BOOKING_AGENCY_GROUP_ID: Long = -154501039
+        const val TEST_GROUP_ID: Long = 39575772
 
         val DEFAULT_LOGIN_SCOPE: ArrayList<VKScope> =
             arrayListOf(VKScope.WALL, VKScope.PHOTOS, VKScope.GROUPS, VKScope.VIDEO)
@@ -20,6 +21,7 @@ class VkConstants {
         //константы для параметров запросов к api
         const val VKAPI_CONST_OWNER_ID = "owner_id"
         const val VKAPI_CONST_GROUP_IDS = "group_ids"
+        const val VKAPI_CONST_GROUP_ID = "group_id"
         const val VKAPI_CONST_COUNT = "count"
         const val VKAPI_CONST_OFFSET = "offset"
         const val VKAPI_CONST_EXTENDED = "extended"
@@ -89,6 +91,18 @@ class VkConstants {
         const val VKAPI_CONST_COUNTRY = "country"
         const val VKAPI_CONST_CITY = "city"
         const val VKAPI_CONST_ADDRESS = "address"
+        //константы для объекта Address
+        const val VKAPI_CONST_ADDITIONAL_ADDRESS = "additional_address"
+        const val VKAPI_CONST_CITY_ID = "city_id"
+        const val VKAPI_CONST_COUNTRY_ID = "country_id"
+        const val VKAPI_CONST_METRO_STATION_ID = "metro_station_id"
+        const val VKAPI_CONST_WORK_INFO_STATUS = "work_info_status"
+        const val VKAPI_CONST_TIMETABLE = "timetable"
+        //константы для объекта MetroStation
+        const val VKAPI_CONST_STATION_IDS = "station_ids"
+        //константы для объекта City
+        const val VKAPI_CONST_CITY_IDS = "city_ids"
+
         //константы для объекта Photo
         const val VKAPI_CONST_ALBUM_ID = "album_id"
         const val VKAPI_CONST_USER_ID = "user_id"

@@ -5,7 +5,7 @@ import ru.cyber_eagle_owl.saddayappkt.clean.data.repositories.NewsRepository
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.presenter.inputports.GetNewsInputPort
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.boundaries.presenter.outputports.GetNewsOutputPort
 import ru.cyber_eagle_owl.saddayappkt.clean.domain.interactors.GetNewsInteractor
-import ru.cyber_eagle_owl.saddayappkt.clean.presentation.mvpcore.BasePresenter
+import ru.cyber_eagle_owl.saddayappkt.clean.mvpcore.BasePresenter
 import timber.log.Timber
 import javax.inject.Inject
 

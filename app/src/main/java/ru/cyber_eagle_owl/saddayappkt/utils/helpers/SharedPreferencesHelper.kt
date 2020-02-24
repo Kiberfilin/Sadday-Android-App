@@ -1,4 +1,4 @@
-package ru.cyber_eagle_owl.saddayappkt.utils
+package ru.cyber_eagle_owl.saddayappkt.utils.helpers
 
 import android.content.SharedPreferences
 
@@ -10,7 +10,7 @@ class SharedPreferencesHelper(var sharedPreferences: SharedPreferences) {
             .apply()
     }
 
-    fun getStringData(key: String): String {
+    fun getStringData(key: String): String? {
         return sharedPreferences.getString(key, "")
     }
 }

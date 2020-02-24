@@ -8,12 +8,10 @@ import android.view.MenuItem
 import android.view.ViewGroup
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_game.*
-import kotlinx.android.synthetic.main.placeholder_layout_for_many_activityes.*
 import kotlinx.android.synthetic.main.toolbar.*
 import ru.cyber_eagle_owl.saddayappkt.R
 import ru.cyber_eagle_owl.saddayappkt.base.BaseActivity
 import timber.log.Timber
-import javax.inject.Inject
 
 class GameActivity : BaseActivity() {
 
